@@ -108,10 +108,20 @@ Sidebar heading:	font:28px/28px 'Nunito Sans Bold', serif;
 
 html body {
 	font-family: 'Nunito Sans', sans-serif;
+	background: #202020;
+	height: 100%;
 }
 
 button:focus {
 	box-shadow: none !important;
+}
+
+.text-none {
+	text-transform: none;
+}
+
+.badge {
+	font-size: 95%;
 }
 
 .wrapper h1,
@@ -289,8 +299,14 @@ button:focus {
 
 }
 
+.main-header.header-scrolled .logo-navbar .nav-item.login a,
+.main-header.header-scrolled .logo-navbar .nav-item.register a {
+	line-height: 33px;
+	margin-top: 6px;
+}
+
 .main-header .topbar {
-	background: #ff7a00;
+	background: #262626;
 	width: 100%;
 	float: left;
 	padding: 5px 0;
@@ -395,6 +411,13 @@ button:focus {
 
 .toplinks .lang-btn .dropdown-menu a {
 	background: #01131f;
+}
+
+.toplinks .lang-btn .dropdown-menu a:hover {
+	background-image: linear-gradient(to right, #FF7A00, #FF004B) !important;
+	background-position: 100% 0;
+	transition: all .4s ease-in-out;
+	color: #fff;
 }
 
 li.acctount-btn {
@@ -582,7 +605,7 @@ li.acctount-btn {
 	left: -260px;
 	width: 260px;
 	padding-top: 18px;
-	background: rgba(40, 38, 70, 0.8);
+	background: rgba(0, 0, 0, 0.9);
 	transition: 0.4s;
 }
 
@@ -593,6 +616,14 @@ li.acctount-btn {
 }
 
 .mobile-nav a {
+	display: block;
+	position: relative;
+	color: #fff;
+	padding: 10px 20px;
+	font-weight: 500;
+}
+
+.mobile-nav button {
 	display: block;
 	position: relative;
 	color: #fff;
@@ -661,7 +692,7 @@ li.acctount-btn {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: rgba(40, 38, 70, 0.8);
+	background: rgba(0, 0, 0, 0.8);
 	overflow: hidden;
 	display: none;
 }
@@ -677,6 +708,11 @@ li.acctount-btn {
 .mobile-nav-active .mobile-nav-toggle i {
 	color: #fff;
 }
+
+/* .mobile-nav .login a {
+	background: none;
+	color: #fff;
+} */
 
 /* Mobile Navigation End */
 
@@ -786,6 +822,14 @@ li.acctount-btn {
 	margin-top: 0px;
 	background: #171717;
 	color: #fff;
+
+}
+
+.dropdown-menu.show {
+	visibility: visible;
+	/* Make dropdown visible */
+	max-height: 500px;
+	/* Max height large enough to show all content */
 }
 
 .logo-navbar .nav-item .dropdown .dropdown-menu button {
@@ -849,6 +893,14 @@ li.acctount-btn {
 .hero_main .iframe-container iframe {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	/* Hide scrollbars */
+
+}
+
+.banner {
+	width: 100%;
+	margin: 10px 0 0 0;
 }
 
 .adbanner {
@@ -1474,14 +1526,18 @@ ul.list-1 li::before {
 .login a,
 .register a {
 	background: #ff4c00;
-	color: #fff;
-	line-height: 40px;
+	color: #fff !important;
+	line-height: 30px;
 	display: inline-block;
 	border-radius: 3px;
 	padding: 0 25px;
 	font-size: 12px;
 	font-weight: 800;
 	text-transform: uppercase;
+}
+
+.register a {
+	background: #d0264d;
 }
 
 .buy-ticket a:hover,
@@ -12219,6 +12275,7 @@ a.full-team,
 .match-table-widget table tbody tr td .score-left {
 	width: 45%;
 	font-size: 15px;
+
 }
 
 .match-table-widget table tbody tr td .score-right {
@@ -12251,6 +12308,16 @@ a.full-team,
 	background-color: #ddd;
 }
 
+.match-table-widget .tb-match {
+	border-radius: 4px;
+	width: 100% !important;
+}
+
+.match-table-widget .tb-match tbody th {
+	background: #202020;
+	color: #fff;
+}
+
 /* Basic styles for blur effect */
 .blur-text {
 	filter: blur(3px);
@@ -12278,6 +12345,23 @@ a.text-success:hover {
 	background-color: #011a42;
 }
 
+.flex-img {
+	flex: 1 1 33%;
+	/* Each image will take up one-third of the flex container */
+	max-width: 33%;
+	/* Maximum width of each image is one-third of the container */
+	height: auto;
+	/* Maintains the aspect ratio of the images */
+	object-fit: cover;
+	/* Ensures the images cover the area properly */
+	padding: 5px;
+	/* Optional: Adds some space between the images */
+}
+
+.percentage h3 {
+	font-size: 18px;
+}
+
 .secondary-nav {
 	background-color: #262626;
 	/* padding: 10px 0; */
@@ -12286,9 +12370,29 @@ a.text-success:hover {
 	justify-content: center; */
 }
 
+.secondary-nav .container {
+	overflow-x: auto;
+	/* Enables horizontal scrolling */
+	white-space: nowrap;
+	/* Keeps all items in a single line */
+	-webkit-overflow-scrolling: touch;
+	/* Smooth scrolling on iOS devices */
+	scrollbar-width: none;
+	/* Hides the scrollbar for Firefox */
+}
+
+.secondary-nav .container::-webkit-scrollbar {
+	display: none;
+	/* Hides the scrollbar in WebKit browsers like Chrome and Safari */
+}
+
 .secondary-nav ul {
+	padding: 0;
+	margin: 0;
 	list-style: none;
-	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .secondary-nav ul li {
@@ -12511,4 +12615,8 @@ a.text-success:hover {
 .modal-content.bg-dark .btn.btn-primary,
 .modal-content.bg-dark .btn.btn-default {
 	border-radius: 15px;
+}
+
+.modal-title {
+	text-transform: uppercase;
 }

@@ -347,6 +347,8 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
+
 	.wrapper h1 {
 		font-size: 32px;
 	}
@@ -721,13 +723,14 @@
 		width: 33.333333%;
 	}
 
-	.main-nav {
+	.main-nav,
+	.main-nav2 {
 		display: none;
 	}
 
 	.mobile-nav-toggle {
 		right: 40px;
-		top: 60px;
+		top: 20px;
 	}
 
 	.rev_slider_wrapper h1 span,
@@ -834,7 +837,7 @@
 	}
 
 	.wrapper h2 {
-		font-size: 28px;
+		font-size: 20px;
 	}
 
 	.wrapper h3 {
@@ -851,6 +854,10 @@
 
 	.wrapper h6 {
 		font-size: 16px;
+	}
+
+	.p80-50 {
+		padding: 40px 0 25px 0;
 	}
 
 	.social-media-wall ul li {
@@ -870,12 +877,23 @@
 		display: none;
 	}
 
+	.section-title h2 {
+		padding: 0 0 0 30px;
+	}
+
+	.section-title h2:after {
+		width: 20px;
+		height: 20px;
+		background: url(../images/titlelinesmb.png) no-repeat;
+	}
+
 	.logo {
 		padding: 0px;
+		line-height: 50px;
 	}
 
 	.logo img {
-		max-height: 40px;
+		max-height: 30px;
 	}
 
 	.logo-navbar .navbar {
@@ -887,6 +905,25 @@
 		height: 40px;
 		color: #fff;
 		float: right;
+	}
+
+	.hero_main {
+		padding: 30px 0;
+	}
+
+	.hero_main .iframe-container {
+		height: 300px;
+		margin: 0px auto;
+	}
+
+	.adbanner {
+		left: 5%;
+		width: 90%;
+		height: auto;
+	}
+
+	.tb-plan {
+		width: 80%;
 	}
 
 	.slider-tabs {
@@ -1442,6 +1479,18 @@
 
 @media (min-width: 280px) and (max-width: 575px) {
 
+	.login,
+	.register {
+		clear: both;
+		text-align: center;
+		padding: 12px 0;
+	}
+
+	.login a,
+	.register a {
+		width: 60%;
+	}
+
 	.main-header .topbar,
 	.slider-tabs {
 		margin: 0px;
@@ -1940,5 +1989,123 @@
 	.inner-banner-header {
 		padding: 50px 0 0;
 		min-height: 180px;
+	}
+
+	.match-table-widget table {
+		border-radius: 4px;
+	}
+
+	.match-table-widget table thead th {
+		background: #fff !important;
+		color: #777 !important;
+		padding: .25rem;
+	}
+
+	.match-table-widget table tbody th {
+		background: #222;
+		color: #fff;
+		font-size: 11px;
+		padding: .25rem;
+	}
+
+	.match-table-widget table thead tr th .score-left {
+		width: 45%;
+		font-size: 12px;
+	}
+
+	.match-table-widget table thead tr th .score-right {
+		width: 45%;
+		font-size: 12px;
+	}
+
+	.match-table-widget table tbody td {
+		background: #fafafa;
+		color: #777;
+		padding: .25rem;
+	}
+
+	.score-left strong {
+		margin-right: 4px;
+	}
+
+	.score-right strong {
+		margin-left: 4px;
+	}
+
+	.match-table-widget table thead th .vs {
+		background: #fefefe;
+		border: 1px solid #e1e1e1;
+		display: inline-block;
+		line-height: 20px;
+		padding: 0 6px;
+		border-radius: 10px;
+		color: #ff4c00;
+		font-size: 11px;
+		margin: 10px 6px 11px 6px;
+	}
+
+	.match-table-widget table thead tr.style1 th {
+		background: #222 !important;
+		color: #fff !important;
+		font-size: 11px;
+		border: none !important;
+	}
+
+	.match-table-widget table tbody tr td {
+		vertical-align: middle;
+	}
+
+	.percentage h3 {
+		font-size: 8px;
+	}
+
+	.percentage .col-4 {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.percentage .col-4 .card {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.progress-circle {
+		height: 54px;
+		width: 54px;
+	}
+
+	.progress-circle span {
+		line-height: 54px;
+		width: 54px;
+		font-size: 12px;
+	}
+
+	.progress-circle:after {
+		top: 4px;
+		left: 4px;
+		width: 46px;
+		height: 46px;
+	}
+
+	.left-half-clipper {
+		width: 54px;
+		height: 54px;
+	}
+
+	.progress-circle.over50 .first50-bar {
+		clip: rect(0, 54px, 54px, 1.25em);
+		width: 54px;
+		height: 54px;
+	}
+
+	.value-bar {
+		clip: rect(0, 1.25em, 54px, 0);
+		width: 54px;
+		height: 54px;
+	}
+
+	.match-table-widget .tb-match tbody th {
+		font-size: 10px;
+		padding: 4px;
 	}
 }

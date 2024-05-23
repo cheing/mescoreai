@@ -467,3 +467,24 @@ function stopSpin(el) {
     el.html(el.data("ori"));
     el.removeClass("disabled");
 }
+
+// $(document).ready(function () {
+//     $(".dropdown-toggle").click(function () {
+//         var $dropdownMenu = $(this).next(".dropdown-menu");
+//         if ($dropdownMenu.hasClass("show")) {
+//             $dropdownMenu.removeClass("show");
+//         } else {
+//             // Close other open dropdowns
+//             $(".dropdown-menu").removeClass("show");
+//             // Open this dropdown
+//             $dropdownMenu.addClass("show");
+//         }
+//     });
+
+//     // Close dropdown when clicking outside
+//     $(document).on("click", function (e) {
+//         if (!$(e.target).closest(".dropdown").length) {
+//             $(".dropdown-menu").removeClass("show");
+//         }
+//     });
+// });

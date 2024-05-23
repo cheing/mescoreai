@@ -78,3 +78,11 @@ Route::get('/create-storage-link', function () {
 
     return 'The symbolic link has been created.';
 });
+
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'zh'])) { // Check if the locale is one of the ones we support
+        session()->put('locale', $locale);
+    }
+
+    return back();
+});

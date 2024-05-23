@@ -3,24 +3,25 @@
 @section('content')
 <div class="hero_main wf100">
   <div class="container text-center">
-    <h2>Step Into Tomorrow's Game</h2>
-    <!-- <h4>Kickstart Your Football Journey!</h4> -->
+    <h2>{{ __('messages.text_football_livestream') }}</h2>
     <div class="iframe-container">
 
       <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
+        scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
       </iframe>
-      <img src="{{asset('images/adbanner.jpg')}}" class="adbanner" />
 
     </div>
+    <img src="{{asset('images/banner.gif')}}" class="banner" />
+
     <div class="d-flex justify-content-center align-items-center mt-4">
-      <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary text-uppercase mr-4">Bet Now <div
-          class="fill-one">
+      <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary text-uppercase mr-4">{{
+        __('messages.btn_bet_now')
+        }}<div class="fill-one">
         </div>
       </a>
-      <a href="{{route('matches')}}" class="btn btn-primary text-uppercase">Match Prediction <div class="fill-two">
+      <a href="{{route('matches')}}" class="btn btn-primary text-uppercase">{{ __('messages.btn_match_prediction')
+        }} <div class="fill-two">
         </div>
       </a>
     </div>
@@ -34,10 +35,13 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="section-title white">
-            <h2 class="text-uppercase">Welcome to me scoreAI</h2>
+            <h2>{{ __('messages.text_welcome_to_me_scoreAI')
+              }} </h2>
           </div>
           <ul class="list-1 text-white">
-            <li>
+            {!! __('messages.text_welcome_content') !!}
+
+            {{-- <li>
               99% of fans don't know about this AI football prediction
             </li>
             <li>This prediction has an accuracy rate of over 85%</li>
@@ -64,10 +68,11 @@
             <li>
               Joining me scoreAI, you can get accurate football
               predictions and watch live football matches for free.
-            </li>
+            </li> --}}
           </ul>
           <div class="d-flex align-items-center justify-content-center">
-            <a href="https://t.me/mescoreai/" class="m-4 btn-primary text-uppercase">Hurry and join Telegram!</a>
+            <a href="https://t.me/mescoreai/" class="m-4 btn-primary text-uppercase">{{ __('messages.btn_hurry')
+              }}</a>
           </div>
         </div>
       </div>
@@ -78,18 +83,9 @@
   <section class="team-squad wf100 p80-50">
     <div class="container">
       <div class="d-flex justify-content-center align-items-center">
-        <video controls class="video" poster="{{asset('images/cover.jpg')}}">
-          <source src="video/me_ai_score_2.mp4?v=20240514" type="video/mp4" />
+        <video controls class="video" muted poster="{{asset(__('media.poster'))}}">
+          <source src="{{ asset(__('media.videoSrc')) }}?v=20240521" type="video/mp4" />
         </video>
-        <!-- <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/3Ry3pQ3Cq7k?si=eosoG2ak9TyCMmE2"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe> -->
       </div>
     </div>
   </section>
@@ -101,10 +97,10 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="text-center">
-            <h2 class="text-uppercase">Our Plan</h2>
-            <p>
-              We offer full access to all the football tips, statistics,
-              filters and any other functionality.
+            <h2 class="text-uppercase">{{ __('messages.text_our_plan')
+              }} </h2>
+            <p>{{ __('messages.text_plan_desc')
+              }}
             </p>
           </div>
         </div>
@@ -112,8 +108,8 @@
       <table class="tb-plan mt-4">
         <thead>
           <tr>
-            <th>
-              me scoreAI lifetime subscription <br />
+            <th>{{ __('messages.text_lifetime_subscription')
+              }} <br />
               <img src="images/logo-white.png" style="max-height: 24px" />
             </th>
           </tr>
@@ -121,28 +117,49 @@
         <tbody>
           <tr>
             <th>
-              Deposit at least RM50 in me88
+              {{
+              __('messages.text_deposit_50')
+              }}
               <hr />
-              Full Access
+              {{
+              __('messages.text_full_access')
+              }}
             </th>
           </tr>
           <tr>
-            <td><br />Predict Correct Rate 90.7%</td>
+            <td><br /> {{
+              __('messages.text_package_info_1')
+              }}</td>
           </tr>
           <tr>
-            <td>Ai Prediction</td>
+            <td> {{
+              __('messages.text_package_info_2')
+              }}</td>
           </tr>
           <tr>
-            <td>Tips for Eurocup and English Premier League</td>
+            <td> {{
+              __('messages.text_package_info_3')
+              }}</td>
           </tr>
           <tr>
-            <td>1x2 tips</td>
+            <td>{{
+              __('messages.text_package_info_4')
+              }}</td>
           </tr>
           <tr>
-            <td>Correct Score Prediction</td>
+            <td>{{
+              __('messages.text_package_info_5')
+              }}</td>
           </tr>
           <tr>
-            <td>Total Goal Tips</td>
+            <td>{{
+              __('messages.text_package_info_6')
+              }}</td>
+          </tr>
+          <tr>
+            <td>{{
+              __('messages.text_package_info_7')
+              }}</td>
           </tr>
         </tbody>
         <tfoot>
@@ -150,7 +167,9 @@
             <td>
               <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary btn-animate"
                 style="text-transform: inherit">
-                DEPOSIT me88 NOW
+                {{
+                __('messages.btn_deposit')
+                }}
               </a>
             </td>
           </tr>
@@ -162,14 +181,26 @@
   <!--Subscription start-->
   <section class="subscription wf100 p40">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="title">
-          <h1>Subscription</h1>
-          <p>Submit your detail for subscription now</p>
+      <div class="d-flex  flex-column flex-md-row  justify-content-between align-items-center">
+        <div class="title d-flex flex-column justify-content-center text-center text-md-left">
+          <h1>{{
+            __('messages.text_subscription')
+            }}</h1>
+          <p>{{
+            __('messages.text_subscription_desc')
+            }}</p>
         </div>
         <div class="button">
-          <a data-toggle="modal" data-target="#modalSubscription"
-            class="btn btn-primary text-uppercase">Subscription</a>
+          @auth
+          <a data-toggle="modal" data-target="#modalSubscription" class="btn btn-primary text-uppercase">{{
+            __('messages.btn_subscription')
+            }}</a>
+          @endauth
+          @guest
+          <a data-toggle="modal" data-target="#modalLogin" class="btn btn-primary text-uppercase">{{
+            __('messages.btn_subscription')
+            }}</a>
+          @endguest
         </div>
       </div>
     </div>
@@ -180,7 +211,36 @@
 @endsection
 
 @section('footer')
+<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      var videoElement = document.querySelector('video');
+  
+      // Options for the observer (which part of the screen to observe)
+      var options = {
+          root: null, // Observing in relation to the viewport
+          rootMargin: '0px',
+          threshold: 0.5 // Trigger if 50% of the video is visible
+      };
+  
+      // Callback function to execute when visibility changes
+      var observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  // Play the video if the video is visible
+                  videoElement.play();
+              } else {
+                  // Pause the video if the video is not visible
+                  videoElement.pause();
+              }
+          });
+      }, options);
+  
+      // Observe the video element
+      observer.observe(videoElement);
+  });
+</script>
 
 
 @endsection

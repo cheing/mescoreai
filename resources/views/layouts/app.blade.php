@@ -29,16 +29,40 @@
   <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/jquery-confirm-master/css/jquery-confirm.css') }}" />
   <!-- Template Main CSS File -->
-  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css?v=4') }}" rel="stylesheet">
+  <link href="{{ asset('css/responsive.css?v=4') }}" rel="stylesheet">
   <link href="{{ asset('css/color.css') }}" rel="stylesheet">
 </head>
 
 <body>
   <!--Wrapper Start-->
   <div class="wrapper">
+
+
     <!--Header Start-->
     <header id="main-header" class="main-header">
+      <!--topbar-->
+      <div class="topbar">
+        <div class="container">
+          <div class="d-flex justify-content-end align-items-center">
+            <ul class="toplinks">
+              <li class="lang-btn">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ App::getLocale() == 'en' ? 'ENG' : '中文' }}
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ url('lang/en') }}">ENG</a>
+                    <a class="dropdown-item" href="{{ url('lang/zh') }}">中文</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--topbar end-->
       <!--Logo + Navbar Start-->
       <div class="logo-navbar">
         <div class="container">
@@ -54,14 +78,61 @@
                 <ul>
                   <li class="nav-item">
                     <a href="{{route('home')}}"
-                      class="{{ request()->routeIs('home') || request()->is('/') ? 'active' : '' }}">Home</a>
+                      class="{{ request()->routeIs('home') || request()->is('/') ? 'active' : '' }}">{{
+                      __('messages.nav_home')
+                      }}</a>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="{{route('home2')}}" class="{{ request()->routeIs('home2')  ? 'active' : '' }}">Home 2</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
-                    <a href="{{route('matches')}}" class="{{ request()->routeIs('matches') ? 'active' : '' }}">Match
-                      Prediction</a>
+                    <a href="{{route('matches')}}" class="{{ request()->routeIs('matches') ? 'active' : '' }}">{{
+                      __('messages.nav_match')
+                      }}
+                    </a>
+                  </li>
+                  @auth
+                  <li class="nav-item d-block d-sm-none">
+                    <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{
+                      __('messages.btn_change_password')
+                      }}
+                    </button>
+                  </li>
+                  <li class="nav-item d-block d-sm-none">
+                    <button type="button" class="dropdown-item"
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
+                      __('messages.btn_logout')
+                      }}</button>
+                  </li>
+                  @endauth
+                  @guest
+                  <li class="nav-item login d-block d-sm-none">
+                    <a data-toggle="modal" data-target="#modalLogin">
+                      {{
+                      __('messages.btn_login')
+                      }}
+                    </a>
+                  </li>
+
+                  <li class="nav-item register d-block d-sm-none">
+                    <a data-toggle="modal" data-target="#modalRegister">{{
+                      __('messages.btn_register')
+                      }}</a>
+                  </li>
+                  @endguest
+                  <li class="nav-item d-block d-sm-none">
+
+                    <div class="d-flex justify-content-center align-items-center pt-2">
+                      <span class="text-white">
+                        {{
+                        __('messages.text_language')
+                        }}
+                      </span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                      <a href="{{ url('lang/en') }}">ENG</a>
+                      <a href="{{ url('lang/zh') }}">中文</a>
+                    </div>
                   </li>
                 </ul>
               </nav>
@@ -74,12 +145,17 @@
                   <li class="nav-item">
                     <div class="dropdown">
                       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"> Account </button>
+                        aria-haspopup="true" aria-expanded="false"> {{
+                        __('messages.text_account')
+                        }} </button>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <button type="button" class="dropdown-item" data-toggle="modal"
-                          data-target="#modalPassword">Change Password</button>
+                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{
+                          __('messages.btn_change_password')
+                          }} </button>
                         <button type="button" class="dropdown-item"
-                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</button>
+                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
+                          __('messages.btn_logout')
+                          }}</button>
                       </div>
                     </div>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -93,12 +169,16 @@
                   @guest
                   <li class="nav-item login">
                     <a data-toggle="modal" data-target="#modalLogin">
-                      Login
+                      {{
+                      __('messages.btn_login')
+                      }}
                     </a>
                   </li>
 
                   <li class="nav-item register">
-                    <a data-toggle="modal" data-target="#modalRegister">Register</a>
+                    <a data-toggle="modal" data-target="#modalRegister">{{
+                      __('messages.btn_register')
+                      }}</a>
                   </li>
 
 
@@ -126,29 +206,27 @@
             <div class="footer-widget about-widget">
               <img src="{{asset('images/logo.png')}}" />
 
-              <p>
-                Our advanced AI algorithms analyze thousands of data points to
-                provide precise football predictions and insightful betting
-                suggestions.
+              <p>{{ __('messages.text_footer')
+                }}
+
               </p>
             </div>
           </div>
           <!--Footer Widget End-->
           <!--Footer Widget Start-->
-          <div class="col-lg-8 col-md-6">
+          <div class="col-lg-4 col-md-6">
             <div class="footer-widget">
-              <h4>Sponsor</h4>
-              <ul class="footer-sponsor">
-                <li>
-                  <img src="{{asset('images/me88.png')}}" />
-                </li>
-                <li>
-                  <img src="{{asset('images/me88.png')}}" />
-                </li>
-                <li>
-                  <img src="{{asset('images/me88.png')}}" />
-                </li>
-              </ul>
+              <h4 class="text-uppercase">{{
+                __('messages.text_sponsor')
+                }}</h4> <a href="https://playme1.asia/register?affid=5678">
+                <div class="d-flex justify-content-center align-items-center">
+
+                  <img src="{{asset('images/logo-me88.png')}}" class="flex-img" /><img
+                    src="{{asset('images/me88-sports-live-tv.png')}}" class="flex-img" /><img
+                    src="{{asset('images/seed-sport-logo.svg')}}" class="flex-img" />
+                </div>
+              </a>
+
             </div>
           </div>
           <!--Footer Widget End-->
@@ -158,24 +236,35 @@
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <p class="copyr">
-              Copyright &copy; {{date('Y')}} by me scoreAI. All Rights Reserved.
+              {{
+              __('messages.text_copyright')
+              }}
             </p>
           </div>
           <div class="col-lg-6 col-md-6">
             <ul class="quick-links">
-              <li><a href="{{route('home')}}">Home</a></li>
-              <li><a href="{{route('matches')}}">Match
-                  Prediction</a></li>
+              <li><a href="{{route('home')}}">{{
+                  __('messages.nav_home')
+                  }}</a></li>
+              <li><a href="{{route('matches')}}">
+                  {{
+                  __('messages.nav_match')
+                  }}</a></li>
             </ul>
           </div>
         </div>
       </div>
     </footer>
     <!--Main Footer End-->
+    @auth
     @include('components.modal-upload')
+    @include('components.modal-password')
+    @endauth
+    @guest
     @include('components.modal-login')
     @include('components.modal-register')
-    @include('components.modal-password')
+    @endguest
+
   </div>
   <!--Wrapper End-->
   <!-- Vendor JS Files -->
@@ -315,6 +404,17 @@
         }
       });
   });
+  $('#btnSignUp').on('click', function() {
+    $('#modalLogin').modal('hide');
+    $('#modalRegister').modal('show');
+  });
+
+  
+  $('#btnSignIn').on('click', function() {
+    $('#modalRegister').modal('hide');
+    $('#modalLogin').modal('show');
+  });
+
   $('#modalInfo #btnUpload').on('click', function() {
     $('#modalInfo').modal('hide');
     $('#modalSubscription').modal('show');

@@ -12,7 +12,7 @@ class TournamentMatch extends Model
     protected $table = 'matches'; // 指定数据库表名
     protected $dates = ['start_time'];
 
-    protected $fillable = ['tournament_id', 'start_time', 'status', 'team_a_id', 'team_b_id', 'first_odd', 'x_odd', 'second_odd', 'tip', 'tip_odd', 'handicap', 'handicap_odd', 'o_u', 'o_u_odd', 'correct_score', 'correct_score_odd', 'best_tip', 'best_tip_odd'];
+    protected $fillable = ['tournament_id', 'start_time', 'status', 'team_a_id', 'team_b_id', 'team_a_result', 'team_b_result', 'first_odd', 'x_odd', 'second_odd', 'tip', 'tip_odd', 'handicap', 'handicap_odd', 'o_u', 'o_u_odd', 'correct_score', 'correct_score_odd', 'best_tip', 'best_tip_odd'];
 
     public function tournament()
     {

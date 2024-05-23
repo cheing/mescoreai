@@ -7,7 +7,9 @@
         @csrf
 
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">LOGIN</h5>
+          <h5 class="modal-title " id="staticBackdropLabel">{{
+            __('messages.text_login')
+            }}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -18,25 +20,33 @@
           </div>
 
           <div class="form-group">
-            <label for="inputUsername">Username</label>
-            <input type="text" class="form-control" id="inputUsername" name="username" />
+            <label for="inputUsername1">{{
+              __('messages.text_username')
+              }}</label>
+            <input type="text" class="form-control" id="inputUsername1" name="username" />
           </div>
           <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" name="password">
+            <label for="inputPassword1">{{
+              __('messages.text_password')
+              }}</label>
+            <input type="password" class="form-control" id="inputPassword1" name="password">
           </div>
           <div class="d-flex align-items-center justify-content-end my-4">
-            {{-- <button type="button" class="btn btn-default mr-1" data-dismiss="modal">
-              Close
-            </button> --}}
-            <button id="btn-login" type="submit" class="btn btn-block btn-primary">Submit</button>
+
+            <button id="btn-login" type="submit" class="btn btn-block btn-primary">{{
+              __('messages.btn_submit')
+              }}</button>
 
           </div>
         </div>
         <div class="modal-footer justify-content-start">
           <div class="d-flex justify-content-start align-items-center">
-            Don't have account? &nbsp;
-            <a href="#" class="text-success">Sign up</a>
+            {{
+            __('messages.text_dont_have_account')
+            }} &nbsp;
+            <a href="#" class="text-success" id="btnSignUp">{{
+              __('messages.text_sign_up')
+              }} </a>
           </div>
         </div>
 

@@ -1,0 +1,67 @@
+<?php
+
+return [
+    'nav_home' => '首页',
+    'nav_match' => '比赛预测',
+
+    'btn_bet_now' => '立即投注',
+    'btn_change_password' => '更改密码',
+    'btn_deposit' => '立即存款',
+    'btn_hurry' => '赶快加入 Telegram 吧！',
+    'btn_login' => '登入',
+    'btn_logout' => '登出',
+    'btn_match_prediction' => '比赛预测',
+    'btn_register' => '注册',
+    'btn_submit' => '提交',
+    'btn_subscription' => '立即订阅',
+    'btn_upload_receipt' => '上传收据',
+
+    'yesterday' => '昨天',
+    'today' => '今天',
+    'tomorrow' => '明天',
+    'date_format' => 'n月 d日', // PHP date format adjusted for Chinese
+
+    'text_account' => '账号',
+    'text_already_have_account' => '已有帐户？',
+    'text_change_password' => '更改密码',
+    'text_confirm_password' => '确认密码',
+    'text_copyright' => 'me scoreAI © '.date('Y').' 版权所有',
+    'text_current_password' => '当前密码',
+    'text_deposit_50' => '在me88充值至少RM50',
+    'text_deposit_in_me88_to_unlock' => '在<span clas="text-lowercase">me88</span>充值解锁配套',
+    'text_dont_have_account' => '没有帐户？',
+    'text_email' => '电子邮件',
+    'text_full_access' => '全面访问',
+    'text_football_livestream' => '足球直播',
+    'text_footer' => '我们先进的人工智能算法分析成千上万的数据点，以提供精确的足球预测和富有洞察力的投注建议。',
+    'text_lifetime_subscription' => 'me scoreAI 终身配套',
+    'text_language' => '语言',
+    'text_login' => '登入',
+    'text_our_plan' => '我们的配套',
+    'text_package_info_1' => '预测准确率 90.7%',
+    'text_package_info_2' => 'Ai 预测',
+    'text_package_info_3' => '欧洲杯和英超联赛预测',
+    'text_package_info_4' => '1x2 预测',
+    'text_package_info_5' => 'Handicap 预测',
+    'text_package_info_6' => 'Correct Score 预测',
+    'text_package_info_7' => 'Over Under 预测',
+    'text_password' => '密码',
+    'text_plan_desc' => '我们提供全面访问所有足球预测、统计数据、过滤和其他功能。',
+    'text_register' => '注册',
+    'text_sign_in' => '登录',
+    'text_sign_up' => '注册',
+    'text_sponsor' => '赞助',
+    'text_subscription' => '订阅',
+    'text_subscription_desc' => '立即提交您的详细信息以进行订阅',
+    'text_upload' => '上传',
+    'text_upload_receipt' => '上传收据',
+    'text_upload_detail' => '在me88存款后，请在此填写您的收据和me88的用户名。',
+    'text_username' => '用户名',
+    'text_welcome_to_me_scoreAI' => '欢迎来到 me scoreAI',
+    'text_welcome_content' => '<li>99% 的球迷不知道这个 AI 足球预测</li>
+    <li>这个预测的准确率超过 85%</li>
+    <li>经过广泛的研究和测试，AI 足球预测，me scoreAI 已经上线</li>
+    <li>目前，me scoreAI 依靠大数据分析和 AI 过滤算法，准确率超过 85%</li>
+    <li>大部分数据来自 Rapid API 平台提供的 API-Football</li>
+    <li>通过 AI 算法推演，me scoreAI 直接提供简化形式的预测和解释</li>',
+];

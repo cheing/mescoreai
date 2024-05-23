@@ -76,7 +76,7 @@ class MatchesController extends Controller
                             ->where('start_time', '<', $baseDate)
                             ->groupBy('date')
                             ->orderBy('date', 'desc')
-                            ->limit(3)
+                            ->limit(2)
                             ->get()
                             ->reverse()
                             ->pluck('date')
@@ -87,7 +87,7 @@ class MatchesController extends Controller
         ->where('start_time', '>', $baseDate->endOfDay()) // 从基准日期结束之后开始搜索
         ->groupBy('date')
         ->orderBy('date', 'asc')
-        ->limit(3)
+        ->limit(2)
         ->get()
         ->pluck('date')
         ->toArray();
@@ -104,13 +104,16 @@ class MatchesController extends Controller
         $formattedDates = array_map(function ($currentDate) use ($today, $date) { // use $currentDate instead of $date
             // $formattedDates = array_map(function ($currentDate) use ($today) {
             $dateCarbon = Carbon::parse($currentDate);
-            $label = $dateCarbon->format('d M');
+            $format = __('messages.date_format');
+            $label = $dateCarbon->format($format); // Use the localized format string
+
+            // $label = $dateCarbon->format('d M');
             if ($dateCarbon->isSameDay($today->copy()->subDay())) {
-                $label = 'Yesterday';
+                $label = __('messages.yesterday');
             } elseif ($dateCarbon->isSameDay($today)) {
-                $label = 'Today';
+                $label = __('messages.today');
             } elseif ($dateCarbon->isSameDay($today->copy()->addDay())) {
-                $label = 'Tomorrow';
+                $label = __('messages.tomorrow');
             }
 
             $isActive = $date === $dateCarbon->format('Y-m-d'); // Correct comparison with the input $date

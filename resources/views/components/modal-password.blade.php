@@ -7,26 +7,36 @@
         @csrf
 
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">CHANGE PASSWORD</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">{{
+            __('messages.text_change_password')
+            }} </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body p-5">
           <div class="form-group">
-            <label for="inputCurrentPassword">Current Password</label>
+            <label for="inputCurrentPassword">{{
+              __('messages.text_current_password')
+              }} </label>
             <input type="password" class="form-control" id="inputCurrentPassword" name="current_password">
           </div>
           <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" name="new_password">
+            <label for="inputNewPassword">{{
+              __('messages.text_password')
+              }}</label>
+            <input type="password" class="form-control" id="inputNewPassword" name="new_password">
           </div>
           <div class="form-group">
-            <label for="inputPassword2">Confirm Password</label>
+            <label for="inputPassword2">{{
+              __('messages.text_confirm_password')
+              }} </label>
             <input type="password" class="form-control" id="inputPassword2" name="new_password_confirmation">
           </div>
           <div class="d-flex align-items-center justify-content-end my-4">
-            <button id="btn-password" type="submit" class="btn btn-block btn-primary">Submit</button>
+            <button id="btn-password" type="submit" class="btn btn-block btn-primary">{{
+              __('messages.btn_submit')
+              }}</button>
           </div>
         </div>
       </form>

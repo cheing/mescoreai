@@ -4,13 +4,8 @@
     <div class="col-lg-12 col-sm-12 grid-margin">
         <!-- form -->
 
-        <form
-            method="post"
-            id="form-tournament"
-            action="{{ url('admin/tournaments/' . $tournament->id) }}"
-            enctype="multipart/form-data"
-            class="forms-sample"
-        >
+        <form method="post" id="form-tournament" action="{{ url('admin/tournaments/' . $tournament->id) }}"
+            enctype="multipart/form-data" class="forms-sample">
             @csrf
             <div class="card">
                 <div class="card-header header-sm">
@@ -19,32 +14,17 @@
                             <h2 class="card-title mb4">Edit Tournament</h2>
                         </div>
                         <div class="wrapper ml-auto action-bar">
-                            <button
-                                type="submit"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                data-original-title="Save"
-                                class="btn btn-icons btn-success btn-sm"
-                            >
+                            <button type="submit" data-toggle="tooltip" data-placement="top" data-original-title="Save"
+                                class="btn btn-icons btn-success btn-sm">
                                 <i class="fa fa-save"></i>
                             </button>
-                            <button
-                                type="button"
-                                class="btn btn-icons btn-danger btn-sm"
-                                id="btnDelete"
-                                data-toggle="modal"
-                                data-target="#modalConfirmDelete"
-                            >
+                            <button type="button" class="btn btn-icons btn-danger btn-sm" id="btnDelete"
+                                data-toggle="modal" data-target="#modalConfirmDelete">
                                 <i class="fa fa-trash"></i>
                             </button>
-                            <a
-                                class="btn btn-icons btn-outline-primary btn-sm"
-                                data-toggle="tooltip"
-                                data-placement="top"
-                                data-original-title="Back"
-                                href="{{ url('/admin/tournaments') }}"
-                                ><i class="fa fa-close"></i
-                            ></a>
+                            <a class="btn btn-icons btn-outline-primary btn-sm" data-toggle="tooltip"
+                                data-placement="top" data-original-title="Back"
+                                href="{{ url('/admin/tournaments') }}"><i class="fa fa-close"></i></a>
                         </div>
                     </div>
                 </div>
@@ -53,19 +33,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label
-                                    class="col-md-3 col-form-label"
-                                    for="title"
-                                    >Title</label
-                                >
+                                <label class="col-md-3 col-form-label" for="title">Title</label>
                                 <div class="col-md-9">
-                                    <input
-                                        id="title"
-                                        type="text"
-                                        class="form-control"
-                                        name="title"
-                                        value="{{ $tournament->title }}"
-                                    />
+                                    <input id="title" type="text" class="form-control" name="title"
+                                        value="{{ $tournament->title }}" />
                                 </div>
                                 <!--//col-->
                             </div>
@@ -73,11 +44,7 @@
                         <!--//col-->
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label
-                                    class="col-md-3 col-form-label"
-                                    for="status"
-                                    >Status</label
-                                >
+                                <label class="col-md-3 col-form-label" for="status">Status</label>
                                 <div class="col-md-9">
                                     <select name="status" class="form-control">
                                         @foreach($statuses as $k=>$v)
@@ -99,26 +66,16 @@
 
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label
-                                    class="col-md-3 col-form-label"
-                                    for="start_date"
-                                    >Date Start
+                                <label class="col-md-3 col-form-label" for="start_date">Date Start
                                 </label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input
-                                            id="start_date"
-                                            type="text"
-                                            class="form-control date"
-                                            name="start_date"
-                                            data-date-format="YYYY-mm-dd"
-                                            placeholder="YYYY-MM-DD"
-                                            value="{{ $tournament->start_date }}"
-                                        />
+                                        <input id="start_date" type="text" class="form-control date" name="start_date"
+                                            data-date-format="YYYY-mm-dd" placeholder="YYYY-MM-DD"
+                                            value="{{ $tournament->start_date }}" />
                                         <div class="input-group-append">
                                             <span>
-                                                <i class="fa fa-calendar"></i
-                                            ></span>
+                                                <i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -129,26 +86,16 @@
 
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label
-                                    class="col-md-3 col-form-label"
-                                    for="end_date "
-                                    >Date End
+                                <label class="col-md-3 col-form-label" for="end_date ">Date End
                                 </label>
                                 <div class="col-md-9">
                                     <div class="input-group">
-                                        <input
-                                            id="end_date"
-                                            type="text"
-                                            class="form-control date"
-                                            name="end_date"
-                                            data-date-format="YYYY-mm-dd"
-                                            placeholder="YYYY-MM-DD"
-                                            value="{{ $tournament->end_date }}"
-                                        />
+                                        <input id="end_date" type="text" class="form-control date" name="end_date"
+                                            data-date-format="YYYY-mm-dd" placeholder="YYYY-MM-DD"
+                                            value="{{ $tournament->end_date }}" />
                                         <div class="input-group-append">
                                             <span>
-                                                <i class="fa fa-calendar"></i
-                                            ></span>
+                                                <i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -159,19 +106,10 @@
 
                         <div class="col-md-6">
                             <div class="form-group row">
-                                <label
-                                    class="col-md-3 col-form-label"
-                                    for="input-sort"
-                                    >Sort</label
-                                >
+                                <label class="col-md-3 col-form-label" for="input-sort">Sort</label>
                                 <div class="col-md-9">
-                                    <input
-                                        id="input-sort"
-                                        type="text"
-                                        class="form-control"
-                                        name="sort"
-                                        value="{{ $tournament->sort }}"
-                                    />
+                                    <input id="input-sort" type="text" class="form-control" name="sort"
+                                        value="{{ $tournament->sort }}" />
                                 </div>
                                 <!--//col-->
                             </div>
@@ -195,100 +133,88 @@
                 <h2 class="card-title mb-4">Matches</h2>
             </div>
             <div class="wrapper ml-auto action-bar">
-                <button
-                    type="button"
-                    class="btn btn-primary btn-fw"
-                    id="btnAddMatch"
-                    data-toggle="modal"
-                    data-target="#modalMatch"
-                    data-toggle="tooltip"
-                    data-placement="top"
-                    data-original-title="Add Match"
-                >
+                <button type="button" class="btn btn-primary btn-fw" id="btnAddMatch" data-toggle="modal"
+                    data-target="#modalMatch" data-toggle="tooltip" data-placement="top"
+                    data-original-title="Add Match">
                     <i class="fa fa-plus"></i> Add Match
                 </button>
             </div>
         </div>
     </div>
     <div class="card-body">
-      <table class="table table-bordered" id="tableMatch">
-        <thead>
-          <tr style="border-bottom:solid 2px #000 text-center">
-            <th class="text-center">Date Time</th>
-            <th class="text-center">Match</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">1</th>
-            <th class="text-center">x</th>
-            <th class="text-center">2</th>
-            <th class="text-center">Tip</th>
-            <th class="text-center">Handicap</th>
-            <th class="text-center">O/U</th>
-            <th class="text-center">Correct Score</th>
-            <th class="text-center">Best Tip</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($tournament->matches as $match)
-            <tr class="text-center">
-              <td>{{ optional($match->start_time)->format('Y-m-d') }}
-              <br/>
-              
-              <span class="badge badge-success">{{ optional($match->start_time)->format('H:i') }}</span>
-              </td>
-              <td><img src="{{  Storage::url($match->teamA->image) }}" style="height: 20px; width:auto">
-                <span class="mr-2">{{$match->teamA->name }}</span> 
-             <span class="badge badge-outline-primary">vs</span> <span class="ml-2">{{$match->teamB->name }}</span>
-              <img src="{{  Storage::url($match->teamB->image) }}" style="height: 20px">
-              </td>
-              <td class="text-center">
-                @if($match->status == 1)
-                <span class="badge badge-success">Enable</span>
-                @else
-                <span class="badge badge-danger">Disabled</span>
-                @endif
-              </td>
-              <td><span class="badge badge-primary mt-1">{{$match->first_odd}}</span></td>
-              <td><span class="badge badge-primary mt-1">{{$match->x_odd}}</span></td>
-              <td><span class="badge badge-primary mt-1">{{$match->second_odd}}</span></td>
-              <td>{{$match->tip}}<br/><span class="badge badge-primary mt-1">{{$match->tip_odd}}</span></td>
-              <td>{{$match->handicap}}<br/><span class="badge badge-primary mt-1">{{$match->handicap_odd}}</span></td>
-              <td>{{$match->o_u}}<br/><span class="badge badge-primary mt-1">{{$match->o_u_odd}}</span></td>
-              <td>{{$match->correct_score}}<br/><span class="badge badge-primary mt-1">{{$match->correct_score_odd}}</span></td>
-              <td>{{$match->best_tip}}<br/><span class="badge badge-primary mt-1">{{$match->best_tip_odd}}</span></td>
-              <td class="text-right" >
-                  <button type="button" class="btn btn-icons btn-success btn-edit-match" data-id="{{$match->id}}"><i class="fa fa-pencil"></i></button>
-                  <button type="button" class="btn btn-icons btn-danger btn-delete-match" data-id="{{$match->id}}"><i class="fa fa-trash"></i></button>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+        <table class="table table-bordered" id="tableMatch">
+            <thead>
+                <tr style="border-bottom:solid 2px #000 text-center">
+                    <th class="text-center">Date Time</th>
+                    <th class="text-center">Match</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">1</th>
+                    <th class="text-center">x</th>
+                    <th class="text-center">2</th>
+                    <th class="text-center">Tip</th>
+                    <th class="text-center">Handicap</th>
+                    <th class="text-center">O/U</th>
+                    <th class="text-center">Correct Score</th>
+                    <th class="text-center">Best Tip</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($tournament->matches as $match)
+                <tr class="text-center">
+                    <td>{{ optional($match->start_time)->format('Y-m-d') }}
+                        <br />
+
+                        <span class="badge badge-success">{{ optional($match->start_time)->format('H:i') }}</span>
+                    </td>
+                    <td><img src="{{  Storage::url($match->teamA->image) }}" style="height: 20px; width:auto">
+                        <span class="mr-2">{{$match->teamA->name }}</span>
+                        <span class="badge badge-outline-primary">vs</span> <span class="ml-2">{{$match->teamB->name
+                            }}</span>
+                        <img src="{{  Storage::url($match->teamB->image) }}" style="height: 20px">
+                    </td>
+                    <td class="text-center">
+                        @if($match->status == 1)
+                        <span class="badge badge-success">Enable</span>
+                        @else
+                        <span class="badge badge-danger">Disabled</span>
+                        @endif
+                    </td>
+                    <td><span class="badge badge-primary mt-1">{{$match->first_odd}}</span></td>
+                    <td><span class="badge badge-primary mt-1">{{$match->x_odd}}</span></td>
+                    <td><span class="badge badge-primary mt-1">{{$match->second_odd}}</span></td>
+                    <td>{{$match->tip}}<br /><span class="badge badge-primary mt-1">{{$match->tip_odd}}</span></td>
+                    <td>{{$match->handicap}}<br /><span class="badge badge-primary mt-1">{{$match->handicap_odd}}</span>
+                    </td>
+                    <td>{{$match->o_u}}<br /><span class="badge badge-primary mt-1">{{$match->o_u_odd}}</span></td>
+                    <td>{{$match->correct_score}}<br /><span
+                            class="badge badge-primary mt-1">{{$match->correct_score_odd}}</span></td>
+                    <td>{{$match->best_tip}}<br /><span class="badge badge-primary mt-1">{{$match->best_tip_odd}}</span>
+                    </td>
+                    <td class="text-right">
+                        <button type="button" class="btn btn-icons btn-success btn-edit-match"
+                            data-id="{{$match->id}}"><i class="fa fa-pencil"></i></button>
+                        <button type="button" class="btn btn-icons btn-danger btn-delete-match"
+                            data-id="{{$match->id}}"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 <!--end matches-->
 
 <!-- delete-->
-<div
-    class="modal fade"
-    id="modalConfirmDelete"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="modalConfirmDeleteLabel"
-    aria-hidden="true"
->
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDeleteLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalConfirmDeleteLabel">
                     Confirm Delete Tournament
                 </h5>
-                <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                >
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -310,19 +236,17 @@
 
 <!-- add match -->
 @include('admin.tournaments.modal-match')
-@endsection 
+@endsection
 
 @section('footer') {!!
 JsValidator::formRequest('App\Http\Requests\UpdateTournamentRequest',
-'#form-tournament'); !!} 
+'#form-tournament'); !!}
 {!!
 JsValidator::formRequest('App\Http\Requests\StoreTournamentMatchRequest',
 '#form-match'); !!}
 {!!JsValidator::formRequest('App\Http\Requests\UpdateTournamentMatchRequest',
-    '#form-match'); !!}
+'#form-match'); !!}
 <script>
-
-
     // Variable to store which item is being uploaded
     var currentUploadItem = '';
 
@@ -575,6 +499,8 @@ JsValidator::formRequest('App\Http\Requests\StoreTournamentMatchRequest',
         $('#modalMatch #form-match #team_a_id').val(data.data.team_a_id).trigger('change');
         $('#modalMatch #form-match #team_b_id').val(data.data.team_b_id).trigger('change');
         $('#modalMatch #form-match #status').val(data.data.status).trigger('change');
+        $('#modalMatch #form-match #team_a_result').val(data.data.team_a_result);
+        $('#modalMatch #form-match #team_b_result').val(data.data.team_b_result);
         $('#modalMatch #form-match #first_odd').val(data.data.first_odd);
         $('#modalMatch #form-match #x_odd').val(data.data.x_odd);
         $('#modalMatch #form-match #second_odd').val(data.data.second_odd);
