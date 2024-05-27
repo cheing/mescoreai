@@ -14,14 +14,15 @@ return new class() extends Migration {
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            // $table->foreignId('user_id')->onDelete('cascade');
             $table->string('username');
             $table->string('email');
             $table->string('file_path');
             $table->dateTime('submitted_at')->default(now());
             $table->boolean('processed')->default(false);
-            $table->foreignId('subscription_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

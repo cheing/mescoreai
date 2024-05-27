@@ -13,7 +13,7 @@ class UpdateReceiptRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateReceiptRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'sometimes|required|integer',
+            'username' => 'sometimes|required|string',
+            'email' => 'sometimes|required|email',
+            'file_path' => 'sometimes|required|string',
         ];
     }
 }

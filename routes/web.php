@@ -4,7 +4,10 @@ use App\Http\Controllers\Api\V1\CountryController;
 use App\Http\Controllers\Api\V1\FAQController;
 use App\Http\Controllers\Api\V1\InformationController;
 use App\Http\Controllers\Api\V1\MemberController;
+use App\Http\Controllers\Api\V1\PackageController;
+use App\Http\Controllers\Api\V1\ReceiptController;
 use App\Http\Controllers\Api\V1\RoundController;
+use App\Http\Controllers\Api\V1\SubscriptionController;
 use App\Http\Controllers\Api\V1\TeamController;
 use App\Http\Controllers\Api\V1\TournamentController;
 use App\Http\Controllers\Api\V1\TournamentMatchController;
@@ -30,7 +33,6 @@ Route::get('/home2', 'HomeController@index2')->name('home2');
 Route::get('/matches', 'MatchesController@index')->name('matches');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
-Route::post('/upload-receipt', 'UploadController@upload')->name('upload-receipt');
 
 /* Admin */
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -63,6 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('members', MemberController::class);
     Route::resource('faqs', FAQController::class);
     Route::resource('informations', InformationController::class);
+    Route::resource('packages', PackageController::class);
+    Route::resource('receipts', ReceiptController::class);
+    Route::resource('subscriptions', SubscriptionController::class);
+
     // Route::post('/round/{round}/winner', [RoundController::class, 'setWinner'])->name('set.winner');
     // Route::post('/round/{round}/winner', 'RoundController@setWinner');
     Route::get('tournament-match/{tournamentMatch}', [TournamentMatchController::class, 'show']);
@@ -71,6 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 });
 Route::group(['middleware' => ['auth']], function () {
     Route::post('change-password', 'HomeController@changePassword')->name('change-password');
+    Route::post('upload-receipt', 'UploadController@upload')->name('upload-receipt');
 });
 
 Route::get('/create-storage-link', function () {
@@ -86,3 +93,23 @@ Route::get('lang/{locale}', function ($locale) {
 
     return back();
 });
+
+// Route::get('/secure-migrate', function () {
+//     try {
+//         Artisan::call('migrate', [
+//             '--force' => true, // Needed if your app is in production
+//         ]);
+//         $output = Artisan::output();
+
+//         return response()->json(['message' => 'Migrations run successfully', 'output' => $output]);
+//     } catch (\Exception $e) {
+//         return response()->json(['error' => $e->getMessage()], 500);
+//     }
+// });
+// Route::get('/run-migration', function () {
+//     Artisan::call('make:migration', [
+//         'name' => 'create_example_table',
+//         '--create' => 'example'
+//     ]);
+//     return "Migration created!";
+// });

@@ -25,7 +25,7 @@
       </div>
       <div class="modal-footer justify-content-center ">
         <div class="d-flex flex-row  justify-content-center align-items-center">
-          <a href="https://playme1.asia/register?affid=5678" class="btn  btn-primary mr-3">{{
+          <a href="https://playme1.asia/register?affid=5678" class="afflink btn  btn-primary mr-3">{{
             __('messages.text_deposit_50')
             }}</a>
           <button type="button" class="btn  btn-default" id="btnUpload">

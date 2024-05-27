@@ -24,6 +24,7 @@ return [
     'text_account' => 'Account',
     'text_already_have_account' => 'Already have account?',
     'text_change_password' => 'Change Password',
+    'text_chat_with_us' => 'Chat with us',
     'text_confirm_password' => 'Confirm Password',
     'text_copyright' => 'Copyright © '.date('Y').' by me scoreAI. All Rights Reserved.',
     'text_current_password' => 'Current Password',
@@ -62,12 +63,12 @@ return [
     'text_upload_detail' => 'After deposit in me88 please fill in your receipt and me88’s username here.',
     'text_username' => 'Username',
     'text_welcome_to_me_scoreAI' => 'Welcome to me scoreAI',
-    'text_welcome_content' => '<li> 99% of fans don\'t know about this AI football prediction </li> 
-        <li>This prediction has an accuracy rate of over 85%</li>
+    'text_welcome_content' => '<li>99% of fans don\'t know about this AI football prediction </li> 
         <li>After extensive research and testing, AI football predictions, me scoreAI have been launched</li>  
-        <li>Currently, me scoreAI relies on big data analysis and AI filtering algorithms, achieving a hit rate of over 85%</li>
+        <li>Currently, me scoreAI relies on big data analysis and AI filtering algorithms</li>
         <li>Most of the data comes from the API-Football provided by the Rapid API platform</li>
         <li>Through AI algorithm deductions, me scoreAI directly provides predictions and explanations in a simplified form.</li>
         <li>Some players have already earned a good income through AI football predictions.</li>
         <li>Joining me scoreAI, you can get accurate football predictions and watch live football atches for free.  </li>',
+    'text_100_sports_welcome_bonus_in_me88' => '100% Sports welcome bonus in me88',
     ];

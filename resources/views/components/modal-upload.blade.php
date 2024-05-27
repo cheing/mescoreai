@@ -20,16 +20,16 @@
         <form method="POST" id="form-upload" action="{{ route('upload-receipt') }}" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-            <label for="inputme88Username">{{
-              __('messages.text_me88_username')
-              }}</label>
-            <input type="text" class="form-control" id="inputme88Username" name="me88Username">
-          </div>
-          <div class="form-group">
             <label for="inputUsername">{{
               __('messages.text_username')
               }}</label>
-            <input type="text" class="form-control" id="inputUsername" name="username">
+            <input type="text" class="form-control" value="{{ Auth::user()->username}}" disabled>
+          </div>
+          <div class="form-group">
+            <label for="inputme88Username">{{
+              __('messages.text_me88_username')
+              }}</label>
+            <input type="text" class="form-control" id="inputme88Username" name="username">
           </div>
           <div class="form-group">
             <label for="inputEmail">{{

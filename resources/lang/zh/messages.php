@@ -24,6 +24,7 @@ return [
     'text_account' => '账号',
     'text_already_have_account' => '已有帐户？',
     'text_change_password' => '更改密码',
+    'text_chat_with_us' => '与我们聊天',
     'text_confirm_password' => '确认密码',
     'text_copyright' => 'me scoreAI © '.date('Y').' 版权所有',
     'text_current_password' => '当前密码',
@@ -37,6 +38,7 @@ return [
     'text_lifetime_subscription' => 'me scoreAI 终身配套',
     'text_language' => '语言',
     'text_login' => '登入',
+    'text_me88_username' => 'me88 用户名',
     'text_our_plan' => '我们的配套',
     'text_package_info_1' => '预测准确率 90.7%',
     'text_package_info_2' => 'Ai 预测',
@@ -59,9 +61,9 @@ return [
     'text_username' => '用户名',
     'text_welcome_to_me_scoreAI' => '欢迎来到 me scoreAI',
     'text_welcome_content' => '<li>99% 的球迷不知道这个 AI 足球预测</li>
-    <li>这个预测的准确率超过 85%</li>
     <li>经过广泛的研究和测试，AI 足球预测，me scoreAI 已经上线</li>
-    <li>目前，me scoreAI 依靠大数据分析和 AI 过滤算法，准确率超过 85%</li>
+    <li>目前，me scoreAI 依靠大数据分析和 AI 过滤算法</li>
     <li>大部分数据来自 Rapid API 平台提供的 API-Football</li>
     <li>通过 AI 算法推演，me scoreAI 直接提供简化形式的预测和解释</li>',
+    'text_100_sports_welcome_bonus_in_me88' => 'me88 100%欢迎奖金',
 ];

@@ -12,10 +12,11 @@
       </iframe>
 
     </div>
-    <img src="{{asset('images/banner.gif')}}" class="banner" />
+    <a href="https://playme1.asia/register?affid=5678" class="afflink">
+      <img src="{{asset('images/adbanner20240524.gif')}}" class="banner" /></a>
 
     <div class="d-flex justify-content-center align-items-center mt-4">
-      <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary text-uppercase mr-4">{{
+      <a href="https://playme1.asia/register?affid=5678" class="afflink btn btn-primary text-uppercase mr-4">{{
         __('messages.btn_bet_now')
         }}<div class="fill-one">
         </div>
@@ -40,35 +41,6 @@
           </div>
           <ul class="list-1 text-white">
             {!! __('messages.text_welcome_content') !!}
-
-            {{-- <li>
-              99% of fans don't know about this AI football prediction
-            </li>
-            <li>This prediction has an accuracy rate of over 85%</li>
-            <li>
-              After extensive research and testing, AI football
-              predictions, me scoreAI have been launched
-            </li>
-            <li>
-              Currently, me scoreAI relies on big data analysis and AI
-              filtering algorithms, achieving a hit rate of over 85%
-            </li>
-            <li>
-              Most of the data comes from the API-Football provided by the
-              Rapid API platform
-            </li>
-            <li>
-              Through AI algorithm deductions, me scoreAI directly
-              provides predictions and explanations in a simplified form.
-            </li>
-            <li>
-              Some players have already earned a good income through AI
-              football predictions.
-            </li>
-            <li>
-              Joining me scoreAI, you can get accurate football
-              predictions and watch live football matches for free.
-            </li> --}}
           </ul>
           <div class="d-flex align-items-center justify-content-center">
             <a href="https://t.me/mescoreai/" class="m-4 btn-primary text-uppercase">{{ __('messages.btn_hurry')
@@ -105,11 +77,14 @@
           </div>
         </div>
       </div>
+
+      @foreach($packages as $package)
       <table class="tb-plan mt-4">
         <thead>
           <tr>
-            <th>{{ __('messages.text_lifetime_subscription')
-              }} <br />
+            <th>
+              {{ $package->descriptions['display_name'][App::getLocale()] }}
+              <br />
               <img src="images/logo-white.png" style="max-height: 24px" />
             </th>
           </tr>
@@ -117,64 +92,31 @@
         <tbody>
           <tr>
             <th>
-              {{
-              __('messages.text_deposit_50')
-              }}
-              <hr />
-              {{
-              __('messages.text_full_access')
-              }}
+              {!! $package->descriptions['short_description'][App::getLocale()] !!}
             </th>
           </tr>
-          <tr>
-            <td><br /> {{
-              __('messages.text_package_info_1')
-              }}</td>
-          </tr>
-          <tr>
-            <td> {{
-              __('messages.text_package_info_2')
-              }}</td>
-          </tr>
-          <tr>
-            <td> {{
-              __('messages.text_package_info_3')
-              }}</td>
-          </tr>
-          <tr>
-            <td>{{
-              __('messages.text_package_info_4')
-              }}</td>
-          </tr>
-          <tr>
-            <td>{{
-              __('messages.text_package_info_5')
-              }}</td>
-          </tr>
-          <tr>
-            <td>{{
-              __('messages.text_package_info_6')
-              }}</td>
-          </tr>
-          <tr>
-            <td>{{
-              __('messages.text_package_info_7')
-              }}</td>
-          </tr>
+          {!! $package->descriptions['description'][App::getLocale()] !!}
         </tbody>
         <tfoot>
           <tr>
             <td>
-              <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary btn-animate"
+              <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary btn-animate afflink"
                 style="text-transform: inherit">
                 {{
                 __('messages.btn_deposit')
                 }}
               </a>
+              <br /><br />
+              <span class="d-flex justify-content-center align-items-center ">
+                {{
+                __('messages.text_100_sports_welcome_bonus_in_me88')
+                }}</span>
             </td>
           </tr>
         </tfoot>
       </table>
+      @endforeach
+
     </div>
   </section>
 
@@ -240,6 +182,11 @@
       // Observe the video element
       observer.observe(videoElement);
   });
+
+
+
+
+
 </script>
 
 

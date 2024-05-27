@@ -45,10 +45,10 @@ class MatchesController extends Controller
         ->get();
 
         // 根据tournament表的sort值和比赛开始时间对赛事进行排序
-        $matches = $matches->sortBy([
-        ['tournament.sort', 'asc'],
-        ['start_time', 'desc'],
-        ]);
+        // $matches = $matches->sortBy([
+        // ['tournament.sort', 'asc'],
+        // ['start_time', 'asc'],
+        // ]);
 
         // 根据tournament_id进行分组
         $tournaments = $matches->groupBy('tournament_id');

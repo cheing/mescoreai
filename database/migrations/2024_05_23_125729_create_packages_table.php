@@ -15,6 +15,8 @@ return new class() extends Migration {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('name');  // Assuming you want a common name field.
+            $table->boolean('status')->default(false);
+            $table->integer('sort');
             $table->integer('duration')->nullable();  // Duration in days, with NULL for unlimited.
             $table->json('descriptions');  // JSON column to store multi-language descriptions.
             $table->timestamps();

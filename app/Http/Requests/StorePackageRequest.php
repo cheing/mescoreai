@@ -13,7 +13,7 @@ class StorePackageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StorePackageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sort' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'status' => 'required|integer|max:1',
+            'duration' => 'nullable|integer',
+            'display_name.en' => 'required|string|max:255',
+            'display_name.zh' => 'required|string|max:255',
+            'short_description.en' => 'required|string',
+            'short_description.zh' => 'required|string',
+            'description.en' => 'required|string',
+            'description.zh' => 'required|string',
         ];
     }
 }

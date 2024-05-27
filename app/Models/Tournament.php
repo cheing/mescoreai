@@ -13,6 +13,6 @@ class Tournament extends Model
 
     public function matches()
     {
-        return $this->hasMany(TournamentMatch::class)->orderBy('start_time', 'desc');
+        return $this->hasMany(TournamentMatch::class)->orderBy('start_time', 'asc');
     }
 }

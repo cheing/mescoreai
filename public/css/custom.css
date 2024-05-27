@@ -167,7 +167,7 @@ button:focus {
 
 .wrapper {
 	width: 100%;
-	float: left;
+	/* float: left; */
 	overflow: hidden;
 }
 
@@ -899,7 +899,7 @@ li.acctount-btn {
 }
 
 .banner {
-	width: 100%;
+	max-width: 100%;
 	margin: 10px 0 0 0;
 }
 
@@ -12619,4 +12619,69 @@ a.text-success:hover {
 
 .modal-title {
 	text-transform: uppercase;
+}
+
+.chat-tg {
+	position: fixed;
+	z-index: 100;
+	right: 0px;
+	bottom: 50px;
+}
+
+.chat-tg a {
+	display: inline-flex;
+	/* Changed to flex to better align icon and text */
+	align-items: center;
+	/* Centers the content vertically */
+	height: 50px;
+	width: 50px;
+	/* Initial width */
+	background: #3390ec;
+	text-align: center;
+	border-radius: 5px 0 0 5px;
+	border: none;
+	overflow: hidden;
+	/* Ensures text is hidden initially */
+	transition: width 0.5s ease;
+	/* Animate width change */
+	color: white;
+	/* Text color */
+	text-decoration: none;
+	/* Remove underline from link */
+}
+
+.chat-tg img {
+	width: 100%;
+	/* Ensure the image covers the 50px width initially */
+	transition: transform 0.5s ease;
+	/* Smooth transformation on hover */
+}
+
+.chat-tg a:hover {
+	width: 200px;
+	/* New width to accommodate text */
+	background: #00aced;
+}
+
+.chat-tg a:hover img {
+	transform: scale(1.1);
+	/* Enlarge icon */
+}
+
+.chat-tg .text {
+	display: block;
+	/* Ensures text is laid out as block */
+	white-space: nowrap;
+	/* Prevents text wrapping */
+	opacity: 0;
+	/* Initially hide text */
+	transition: opacity 0.5s ease 0.3s;
+	/* Delayed appearance */
+	margin-left: 10px;
+	/* Space between icon and text */
+}
+
+.chat-tg a:hover .text {
+	opacity: 1;
+	/* Show text on hover */
 }

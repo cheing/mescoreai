@@ -39,4 +39,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'subscribe' => 'boolean',
     ];
+
+    public function activeSubscription()
+    {
+        return $this->hasOne(Subscription::class)
+                    ->where('start_date', '<=', now())
+                    ->where(function($query) {
+                        $query->where('end_date', '>=', now())
+                              ->orWhereNull('end_date');  // Assuming null end_date means unlimited
+                    });
+    }
+    
 }

@@ -15,7 +15,9 @@ return new class() extends Migration {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_zh');
             $table->text('content');
+            $table->text('content_zh');
             $table->integer('sort');
             $table->timestamps();
         });

@@ -6,6 +6,7 @@ use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Resources\V1\UserResource;
+use App\Models\Package;
 use App\Models\TournamentMatch;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -35,7 +36,9 @@ class HomeController extends Controller
         // 获取当前日期
         $today = Carbon::now();
 
-        return view('home');
+        $packages = Package::where('status', 1)->orderby('sort', 'asc')->get();
+
+        return view('home', ['packages' => $packages]);
     }
 
     public function index2()

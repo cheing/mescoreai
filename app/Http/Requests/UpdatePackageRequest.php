@@ -13,7 +13,7 @@ class UpdatePackageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdatePackageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sort' => 'sometimes|required|integer',
+            'name' => 'sometimes|required|string|max:255',
+            'status' => 'sometimes|required|integer|max:1',
+            'duration' => 'sometimes|nullable|integer',
+            'display_name.en' => 'sometimes|required|string|max:255',
+            'display_name.zh' => 'sometimes|required|string|max:255',
+            'short_description.en' => 'sometimes|nullable|string',
+            'short_description.zh' => 'sometimes|nullable|string',
+            'description.en' => 'sometimes|nullable|string',
+            'description.zh' => 'sometimes|nullable|string',
         ];
     }
 }

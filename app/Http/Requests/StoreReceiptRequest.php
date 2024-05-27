@@ -13,7 +13,7 @@ class StoreReceiptRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreReceiptRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|integer',
+            'username' => 'required|string',
+            'email' => 'required|email',
+            'file_path' => 'required|string',
         ];
     }
 }

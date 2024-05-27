@@ -125,10 +125,10 @@
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach($tournamentGroup->sortByDesc('start_time') as $match)
+                            @foreach($tournamentGroup->sortBy('start_time') as $match)
                             <tr>
                               <td>
-                                {{ $match->start_time->format('H:m') }}
+                                {{ $match->start_time->format('H:i') }}
                                 <br />
                                 @if($match->start_time < now()) <span class="badge badge-secondary">{{
                                   __('match.text_finished')
@@ -158,166 +158,34 @@
                                   </div>
                                 </div>
                               </td>
-                              @if($match->start_time < now()) <td>
-
-                                <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                  data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{
-                                  $match->first_odd}}</span>
-                                </td>
-                                <td>
-                                  <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->x_odd}}</span>
-                                </td>
-                                <td>
-                                  <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->second_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->tip}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->tip_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->handicap}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->handicap_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->o_u}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->o_u_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->correct_score}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->correct_score_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->best_tip}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->best_tip_odd}}</span>
-                                </td>
-                                <td></td>
-                                @elseif(auth()->check())
-                                @if(Auth::user()->subscribe)
-                                <td>
-                                  <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->first_odd}}</span>
-                                </td>
-                                <td>
-                                  <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->x_odd}}</span>
-                                </td>
-                                <td>
-                                  <span class="badge badge-primary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->second_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->tip}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->tip_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->handicap}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->handicap_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->o_u}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->o_u_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->correct_score}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->correct_score_odd}}</span>
-                                </td>
-                                <td>
-                                  {{ $match->best_tip}}<br />
-                                  <span class="badge badge-secondary" data-container="body" data-toggle="popover"
-                                    data-placement="top" data-content="{{
-                                    __('match.text_odd')
-                                    }}" data-trigger="hover">{{ $match->best_tip_odd}}</span>
-                                </td>
-                                <td></td>
+                              <!-- Check various conditions for display of match predictions -->
+                              @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >= 120)
+                                <!-- Conditions 1 and 2: Match is past or has been ongoing for at least 2 hours -->
+                                @include('partials.match_predictions', ['match' => $match])
                                 @else
-                                @for($i=0; $i<8; $i++) <td><a href="#" data-toggle="modal" data-target="#modalInfo"
-                                    style="display: block">
-                                    <span data-container="body" data-toggle="popover" data-placement="top"
-                                      data-content="Please subscribe in order to see the predictions"
-                                      data-trigger="hover">
-                                      @if($i > 2)
-                                      <span class="blur-text">x</span><br />
-                                      @endif
-                                      <span
-                                        class="blur-text badge {{ $i > 2 ? 'badge-secondary' : 'badge-primary' }} ">x</span></span></a>
-                                  </td>
-                                  @endfor
-                                  <td>
-                                    <button type="button" class="btn btn-icon" data-toggle="modal"
-                                      data-target="#modalInfo">
-                                      <i class="fa fa-lock"></i>
-                                    </button>
-                                  </td>
-                                  @endif
-                                  @else
-                                  {{-- 用户未登录，显示锁定图标提示登录 --}}
-                                  @for($i=0; $i<8; $i++) <td><a href="#" data-toggle="modal" data-target="#modalLogin"
-                                      style="display: block">
-                                      <span data-container="body" data-toggle="popover" data-placement="top"
-                                        data-content="Please subscribe in order to see the predictions"
-                                        data-trigger="hover">
-                                        @if($i > 2)
-                                        <span class="blur-text">x</span><br />
-                                        @endif
-                                        <span
-                                          class="blur-text badge {{ $i > 2 ? 'badge-secondary' : 'badge-primary' }} ">x</span></span></a>
-                                    </td>
-                                    @endfor
-                                    <td>
-                                      <button type="button" class="btn btn-icon" data-toggle="modal"
-                                        data-target="#modalLogin">
-                                        <i class="fa fa-lock"></i>
-                                      </button>
-                                    </td>
-                                    @endif
+
+                                @if(auth()->check())
+                                <!-- Check user login and subscription status -->
+                                @if(auth()->user()->activeSubscription())
+                                <!-- Condition 3: User has an active subscription -->
+                                @include('partials.match_predictions', ['match' => $match])
+                                @else
+                                <!-- Condition 5: User is logged in but does not have a subscription -->
+                                @include('partials.locked_match_details')
+                                @endif
+                                @else
+                                <!-- Condition 4: User not logged in and match is upcoming -->
+                                @include('partials.not_logged_match_details')
+                                @endif
+
+                                @endif
                             </tr>
                             @endforeach
                           </tbody>
                         </table>
                       </div>
                       <div class="d-block d-sm-none">
-                        @foreach($tournamentGroup->sortByDesc('start_time') as $match)
+                        @foreach($tournamentGroup->sortBy('start_time') as $match)
 
                         <table class="table">
                           <thead>
@@ -325,7 +193,7 @@
                               <th colspan="10">
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                  <span class="badge badge-success"> {{ $match->start_time->format('H:m') }}</span>
+                                  <span class="badge badge-success"> {{ $match->start_time->format('H:i') }}</span>
 
                                   @if($match->start_time < now()) <span class="badge badge-secondary">{{
                                     __('match.text_finished')
@@ -381,56 +249,14 @@
                               <th></th>
                             </tr>
                             <tr>
-                              @if($match->start_time < now()) <td> {{
-                                __('match.text_odd')
-                                }}</td>
-                                <td>
-                                  <span class="badge badge-primary">{{ $match->first_odd}}</span>
-                                </td>
-                                <td><span class="badge badge-primary">{{ $match->x_odd}}</span></td>
-                                <td><span class="badge badge-primary">{{ $match->second_odd}}</span></td>
-                                <td>{{ $match->tip}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->tip_odd}}</span>
-                                </td>
-                                <td> {{ $match->handicap}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->handicap_odd}}</span>
-                                </td>
-                                <td> {{ $match->o_u}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->o_u_odd}}</span>
-                                </td>
-                                <td>{{ $match->correct_score}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->correct_score_odd}}</span>
-                                </td>
-                                <td> {{ $match->best_tip}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->best_tip_odd}}</span>
-                                </td>
-                                <td></td>
+                              @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >= 120)
+                                @include('partials.match_predictions_mobile', ['match' => $match])
+
                                 @elseif(auth()->check())
-                                @if(Auth::user()->subscribe)
-                                <td> {{
-                                  __('match.text_odd')
-                                  }}</td>
-                                <td>
-                                  <span class="badge badge-primary">{{ $match->first_odd}}</span>
-                                </td>
-                                <td><span class="badge badge-primary">{{ $match->x_odd}}</span></td>
-                                <td><span class="badge badge-primary">{{ $match->second_odd}}</span></td>
-                                <td>{{ $match->tip}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->tip_odd}}</span>
-                                </td>
-                                <td> {{ $match->handicap}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->handicap_odd}}</span>
-                                </td>
-                                <td> {{ $match->o_u}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->o_u_odd}}</span>
-                                </td>
-                                <td>{{ $match->correct_score}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->correct_score_odd}}</span>
-                                </td>
-                                <td> {{ $match->best_tip}}<br />
-                                  <span class="badge badge-secondary ml-1">{{ $match->best_tip_odd}}</span>
-                                </td>
-                                <td></td>
+                                @if(auth()->user()->activeSubscription())
+
+                                @include('partials.match_predictions_mobile', ['match' => $match])
+
                                 @else
                                 <td colspan="10">
                                   <button type="button" class="btn btn-icon" data-toggle="modal"
@@ -451,94 +277,6 @@
                           </tbody>
                         </table>
                         @endforeach
-                        {{-- <table class="table">
-                          <thead>
-                            <tr class="style1">
-
-                              <th>{{
-                                __('match.text_time')
-                                }}</th>
-                              <th>{{
-                                __('match.text_match')
-                                }}</th>
-                              <th>{{
-                                __('match.text_1_x_2_tips')
-                                }}</th>
-                              <th>{{
-                                __('match.text_correct_score')
-                                }} </th>
-                              <th>{{
-                                __('match.text_handicap')
-                                }} </th>
-                              <th>{{
-                                __('match.text_o_u')
-                                }} </th>
-                              <th>{{
-                                __('match.text_best_tip')
-                                }} </th>
-                            </tr>
-                          </thead>
-
-                          <tbody>
-
-                            @foreach($tournamentGroup->sortByDesc('start_time') as $match)
-                            <tr style="border-bottom:solid 2px #eee; vertical-align:middle">
-                              <td rowspan="2">
-                                {{ $match->start_time->format('H:m') }}
-                                @if($match->start_time < now()) <span class="badge badge-secondary">
-                                  {{
-                                  __('match.text_finished')
-                                  }}</span>
-                                  @else
-                                  <span class="badge badge-success">{{
-                                    __('match.text_upcoming')
-                                    }}</span>
-                                  @endif
-                              </td>
-
-                              <td>
-                                <img src="{{  Storage::url($match->teamA->image) }}" alt="" class="img-fluid" />
-                              </td>
-                              @if($match->start_time < now()) <td rowspan="2">{{$match->tip}}</td>
-                                <td rowspan="2">{{$match->correct_score}}</td>
-                                <td rowspan="2">{{$match->handicap}}</td>
-                                <td rowspan="2">{{$match->o_u}}</td>
-                                <td rowspan="2">{{$match->best_tip}}</td>
-                                @elseif(auth()->check())
-                                @if(Auth::user()->subscribe)
-                                <td rowspan="2">{{$match->tip}}</td>
-                                <td rowspan="2">{{$match->correct_score}}</td>
-                                <td rowspan="2">{{$match->handicap}}</td>
-                                <td rowspan="2">{{$match->o_u}}</td>
-                                <td rowspan="2">{{$match->best_tip}}</td>
-                                @else
-                                <td colspan="5" rowspan="2">
-                                  <button type="button" class="btn btn-icon" data-toggle="modal"
-                                    data-target="#modalInfo">
-                                    <i class="fa fa-lock"></i>
-                                  </button>
-                                </td>
-                                @endif
-                                @else
-                                <td colspan="5" rowspan="2">
-                                  <button type="button" class="btn btn-icon" data-toggle="modal"
-                                    data-target="#modalLogin">
-                                    <i class="fa fa-lock"></i>
-                                  </button>
-                                </td>
-                                @endif
-                            </tr>
-                            <tr style="border-bottom:none 0px #eee">
-                              <td style="border-bottom:none 0px #eee"><img
-                                  src="{{  Storage::url($match->teamB->image) }}" class="img-fluid"></td>
-                            </tr>
-
-
-
-                            @endforeach
-                          <tbody>
-
-                        </table> --}}
                       </div>
                     </div>
                   </div>
@@ -565,6 +303,10 @@
     let firstAccordion = $('#accordionMatch .collapse').first();
     firstAccordion.addClass('show');
     firstAccordion.prev('.card-header').find('a').attr('aria-expanded', 'true');
+});
+
+$('#modalInfo').on('shown.bs.modal', function () {
+    updateAffiliateLinks();  // Update links when modal is shown
 });
 </script>
 @endsection

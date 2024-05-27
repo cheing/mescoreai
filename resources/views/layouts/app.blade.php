@@ -29,8 +29,8 @@
   <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/jquery-confirm-master/css/jquery-confirm.css') }}" />
   <!-- Template Main CSS File -->
-  <link href="{{ asset('css/custom.css?v=4') }}" rel="stylesheet">
-  <link href="{{ asset('css/responsive.css?v=4') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css?v=6') }}" rel="stylesheet">
+  <link href="{{ asset('css/responsive.css?v=6') }}" rel="stylesheet">
   <link href="{{ asset('css/color.css') }}" rel="stylesheet">
 </head>
 
@@ -264,11 +264,20 @@
     @include('components.modal-login')
     @include('components.modal-register')
     @endguest
+    <div class="chat-tg">
+      <a href="https://t.me/mescoreaiofficial/" target="_blank">
+        <img src="{{ asset('images/icons8-telegram-app.svg')}}" style="width:30px;margin-left:10px" />
+        <span class="text"> {{
+          __('messages.text_chat_with_us')
+          }}</span>
 
+      </a>
+    </div>
   </div>
   <!--Wrapper End-->
+
   <!-- Vendor JS Files -->
-  <script src="{{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script>
+  <script src=" {{ asset('vendor/jquery/jquery-3.3.1.min.js')}}"></script>
   <script src="{{ asset('js/jquery-migrate-3.0.1.js')}}"></script>
   <script src="{{ asset('js/popper.min.js')}}"></script>
   <script src="{{ asset('js/bootstrap.min.js')}}"></script>
@@ -283,6 +292,7 @@
   {!! JsValidator::formRequest('App\Http\Requests\StoreMemberRequest', '#form-register'); !!}
   {!! JsValidator::formRequest('App\Http\Requests\LoginRequest', '#form-login'); !!}
   {!! JsValidator::formRequest('App\Http\Requests\ChangePasswordRequest', '#form-password'); !!}
+  {!! JsValidator::formRequest('App\Http\Requests\UploadReceiptRequest', '#form-upload'); !!}
 
   <script>
     $('#form-register').submit(function(e) {
@@ -419,6 +429,54 @@
     $('#modalInfo').modal('hide');
     $('#modalSubscription').modal('show');
   });
+
+  // This function gets a parameter by name from the URL.
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Store the code in local storage if it's not already stored.
+var existingCode = localStorage.getItem('affiliateCode');
+var currentCode = getUrlParameter('code');
+if (currentCode && (!existingCode || existingCode !== currentCode)) {
+    localStorage.setItem('affiliateCode', currentCode);
+}
+// Retrieve the affiliate code from local storage when needed.
+var affiliateCode = localStorage.getItem('affiliateCode');
+if (affiliateCode) {
+    // Use the affiliate code as needed, for example, update links.
+    $("a.afflink").attr("href", "https://playme1.asia/register?affid=" + affiliateCode);
+}
+
+
+//   function updateAffiliateLinks() {
+//     var getUrlParameter = function(sParam) {
+//         var sPageURL = window.location.search.substring(1),
+//             sURLVariables = sPageURL.split('&'),
+//             sParameterName,
+//             i;
+
+//         for (i = 0; i < sURLVariables.length; i++) {
+//             sParameterName = sURLVariables[i].split('=');
+
+//             if (sParameterName[0] === sParam) {
+//                 return sParameterName[1] === undefined ? '' : decodeURIComponent(sParameterName[1]);
+//             }
+//         }
+//         return '';
+//     };
+
+//     var affiliate = getUrlParameter('aff') || getUrlParameter('code');
+//     $("a.afflink").attr("href", "https://playme1.asia/register?affid=" + affiliate);
+//     $("a.afflink").attr("target", "_top");
+// }
+
+// jQuery(document).ready(function($) {
+//     updateAffiliateLinks();
+// });
   </script>
 </body>
 
