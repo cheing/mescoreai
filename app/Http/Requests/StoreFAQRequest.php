@@ -26,7 +26,9 @@ class StoreFAQRequest extends FormRequest
         return [
             'sort' => 'required|integer',
             'title' => 'required|string',
+            'title_zh' => 'required|string',
             'content' => 'required|string',
+            'content_zh' => 'required|string',
         ];
     }
 }

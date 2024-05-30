@@ -11,5 +11,5 @@ class Information extends Model
 
     protected $table = 'informations';
 
-    protected $fillable = ['title', 'content', 'sort'];
+    protected $fillable = ['key', 'title', 'title_zh', 'content', 'content_zh'];
 }

@@ -29,8 +29,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@Index');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home2', 'HomeController@index2')->name('home2');
 Route::get('/matches', 'MatchesController@index')->name('matches');
+Route::get('/subscription', 'HomeController@Subscription')->name('subscription');
+Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
 

@@ -2,7 +2,9 @@
 
 return [
     'nav_home' => 'Home',
+    'nav_faq' => 'FAQ',
     'nav_match' => 'Match Prediction',
+    'nav_subscription' => 'Subscription',
 
     'btn_bet_now' => 'Bet Now',
     'btn_change_password' => 'Change Password',
@@ -32,6 +34,7 @@ return [
     'text_deposit_in_me88_to_unlock' => 'DEPOSIT IN <span clas="text-lowercase">me88</span> TO UNLOCK',
     'text_dont_have_account' => 'Don\'t have account?',
     'text_email' => 'Email',
+    'text_faq' => 'FAQ',
     'text_full_access' => 'Full Access ',
     'text_football_livestream' => 'FOOTBALL LIVESTREAM',
     'text_footer' => 'Our advanced AI algorithms analyze thousands of data points to
@@ -40,6 +43,7 @@ return [
     'text_lifetime_subscription' => 'me scoreAI lifetime subscription',
     'text_language' => 'Language',
     'text_login' => 'Login',
+    'text_please_login_to_subscribe' => 'Please login to upload your receipt',
     'text_me88_username' => 'me88 Username',
     'text_our_plan' => 'Our Plan',
     'text_package_info_1' => 'Predict Correct Rate 90.7%',

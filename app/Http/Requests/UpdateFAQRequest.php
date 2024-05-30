@@ -26,7 +26,9 @@ class UpdateFAQRequest extends FormRequest
         return [
             'sort' => 'sometimes|required|integer',
             'title' => 'sometimes|required|string',
+            'title_zh' => 'sometimes|required|string',
             'content' => 'sometimes|required|string',
+            'content_zh' => 'sometimes|required|string',
         ];
     }
 }

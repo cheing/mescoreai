@@ -34,8 +34,12 @@ class UploadController extends Controller
         $data = $request->validated();
         try {
             // Store the uploaded file
-            $file = $request->file('file');
-            $filePath = $file->store('uploads', 'public');
+            if ($request->file('file')) {
+                $file = $request->file('file');
+                $filePath = $file->store('uploads', 'public');
+            } else {
+                $filePath = '';
+            }
 
             $receipt = new Receipt();
 

@@ -12624,8 +12624,9 @@ a.text-success:hover {
 .chat-tg {
 	position: fixed;
 	z-index: 100;
-	right: 0px;
-	bottom: 50px;
+	right: 5%;
+	bottom: 15%;
+
 }
 
 .chat-tg a {
@@ -12633,12 +12634,12 @@ a.text-success:hover {
 	/* Changed to flex to better align icon and text */
 	align-items: center;
 	/* Centers the content vertically */
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 60px;
 	/* Initial width */
 	background: #3390ec;
 	text-align: center;
-	border-radius: 5px 0 0 5px;
+	border-radius: 50%;
 	border: none;
 	overflow: hidden;
 	/* Ensures text is hidden initially */
@@ -12647,7 +12648,16 @@ a.text-success:hover {
 	color: white;
 	/* Text color */
 	text-decoration: none;
+	border: solid 5px #fff;
+	/* box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.3); */
 	/* Remove underline from link */
+	/* animation-name: floating;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out; */
+	box-shadow: 0 5px 15px 0px rgba(255, 255, 255, 0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
 
 .chat-tg img {
@@ -12658,9 +12668,10 @@ a.text-success:hover {
 }
 
 .chat-tg a:hover {
-	width: 200px;
+	width: 170px;
 	/* New width to accommodate text */
 	background: #00aced;
+	border-radius: 5px;
 }
 
 .chat-tg a:hover img {
@@ -12684,4 +12695,73 @@ a.text-success:hover {
 .chat-tg a:hover .text {
 	opacity: 1;
 	/* Show text on hover */
+}
+
+
+@keyframes floating {
+	from {
+		transform: translate(0, 0px);
+	}
+
+	65% {
+		transform: translate(0, 15px);
+	}
+
+	to {
+		transform: translate(0, -0px);
+	}
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: translatey(0px);
+	}
+
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+		transform: translatey(-20px);
+	}
+
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+		transform: translatey(0px);
+	}
+}
+
+#accordionFAQ .card .card-header {
+	background: transparent;
+
+}
+
+#accordionFAQ .card .card-header .btn {
+	background: rgb(254, 77, 0);
+	background: linear-gradient(180deg, rgba(254, 77, 0, 1) 0%, rgba(211, 41, 70, 1) 100%);
+}
+
+
+
+#accordionFAQ .card .card-body {
+	background: #fff;
+	color: #333;
+}
+
+.bg-slate {
+	background-color: #333;
+}
+
+.bg-slate input[type='text'],
+.bg-slate input[type='password'],
+.bg-slate input[type='email'],
+.bg-slate input[type='file'] {
+	background-color: #202020;
+	border-bottom: solid 1px #000;
+	border-radius: 0;
+	outline: 0;
+	border: solid 1px #333;
+	color: #7c859a;
+}
+
+.wrapper .bg-slate .form-control:focus {
+	color: #fff
 }

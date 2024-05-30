@@ -2,7 +2,9 @@
 
 return [
     'nav_home' => '首页',
+    'nav_faq' => '常见问题',
     'nav_match' => '比赛预测',
+    'nav_subscription' => '订阅',
 
     'btn_bet_now' => '立即投注',
     'btn_change_password' => '更改密码',
@@ -32,12 +34,14 @@ return [
     'text_deposit_in_me88_to_unlock' => '在<span clas="text-lowercase">me88</span>充值解锁配套',
     'text_dont_have_account' => '没有帐户？',
     'text_email' => '电子邮件',
+    'text_faq' => '常见问题',
     'text_full_access' => '全面访问',
     'text_football_livestream' => '足球直播',
     'text_footer' => '我们先进的人工智能算法分析成千上万的数据点，以提供精确的足球预测和富有洞察力的投注建议。',
     'text_lifetime_subscription' => 'me scoreAI 终身配套',
     'text_language' => '语言',
     'text_login' => '登入',
+    'text_please_login_to_subscribe' => '请先登入您的账号。',
     'text_me88_username' => 'me88 用户名',
     'text_our_plan' => '我们的配套',
     'text_package_info_1' => '预测准确率 90.7%',

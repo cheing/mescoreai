@@ -24,9 +24,11 @@ class StoreInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'sort' => 'required|integer',
+            'key' => 'required|string',
             'title' => 'required|string',
-            'content' => 'required|string',
+            'title_zh' => 'nullable|string',
+            'content' => 'nullable|string',
+            'content_zh' => 'nullable|string',
         ];
     }
 }

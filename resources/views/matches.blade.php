@@ -71,7 +71,6 @@
           </div>
         </div>
       </div>
-
       <div class="row">
         <div class="col-lg-12">
           <div class="accordion" id="accordionMatch">
@@ -166,7 +165,7 @@
 
                                 @if(auth()->check())
                                 <!-- Check user login and subscription status -->
-                                @if(auth()->user()->activeSubscription())
+                                @if(auth()->user()->activeSubscription() || Auth::user()->role == "admin")
                                 <!-- Condition 3: User has an active subscription -->
                                 @include('partials.match_predictions', ['match' => $match])
                                 @else

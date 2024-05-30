@@ -15,9 +15,10 @@ return new class() extends Migration {
         Schema::create('informations', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('title_zh')->nullable();
             $table->string('key');
-            $table->text('content');
-            $table->integer('sort');
+            $table->text('content')->nullable();
+            $table->text('content_zh')->nullable();
             $table->timestamps();
         });
     }

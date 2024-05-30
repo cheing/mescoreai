@@ -41,7 +41,10 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-        return view('admin.subscriptions.create'); // 传递到视图
+        $users = User::where('role', 'member')->get();
+        $packages = Package::get();
+
+        return view('admin.subscriptions.create', ['users' => $users, 'packages' => $packages]); // 传递到视图
     }
 
     /**
@@ -74,9 +77,11 @@ class SubscriptionController extends Controller
         $subscription->save();
 
         // Update the receipt status
-        $receipt = Receipt::findOrFail($data['receipt_id']);
-        $receipt->processed = true;
-        $receipt->save();
+        if (isset($data['receipt_id'])) {
+            $receipt = Receipt::findOrFail($data['receipt_id']);
+            $receipt->processed = true;
+            $receipt->save();
+        }
 
         return new SubscriptionResource($subscription);
     }

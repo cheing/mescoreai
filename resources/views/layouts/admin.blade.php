@@ -6,7 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>@yield('title') | {{ config('app.name') }}</title>
+  {{-- <title>@yield('title') | {{ config('app.name') }}</title> --}}
+  <title>{{ config('app.name', 'me scoreAI: Eurocup Live Streaming 2024') }}</title>
+  <meta name="description"
+    content="Join me scoreAI now and gain exclusive lifetime access to AI-driven sports predictions and watch Eurocup Live Streaming 2024.">
 
   <!-- Scripts -->
   <!-- Styles -->
@@ -130,7 +133,7 @@
               <span class="menu-title">Packages</span>
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="{{url('admin/faqs')}}">
               <i class="menu-icon icon-question"></i>
               <span class="menu-title">FAQs</span>
@@ -141,7 +144,7 @@
               <i class="menu-icon icon-info"></i>
               <span class="menu-title">Informations</span>
             </a>
-          </li> --}}
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('admin/members')}}">
               <i class="menu-icon  icon-ghost"></i>

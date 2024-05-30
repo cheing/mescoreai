@@ -26,7 +26,7 @@ class StoreSubscriptionRequest extends FormRequest
         return [
             'user_id' => 'required|integer',
             'package_id' => 'required|integer',
-            'receipt_id' => 'required|integer',
+            'receipt_id' => 'nullable|integer',
         ];
     }
 }

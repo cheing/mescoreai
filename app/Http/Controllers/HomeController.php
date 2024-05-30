@@ -6,6 +6,8 @@ use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Resources\V1\UserResource;
+use App\Models\FAQ;
+use App\Models\Information;
 use App\Models\Package;
 use App\Models\TournamentMatch;
 use App\Models\User;
@@ -37,8 +39,9 @@ class HomeController extends Controller
         $today = Carbon::now();
 
         $packages = Package::where('status', 1)->orderby('sort', 'asc')->get();
+        $text_welcome = Information::where('key', 'text_welcome')->first();
 
-        return view('home', ['packages' => $packages]);
+        return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome]);
     }
 
     public function index2()
@@ -147,5 +150,19 @@ class HomeController extends Controller
 
         // Return a response, such as redirecting with a success message
         return response()->json(['message' => 'Password changed successfully.']);
+    }
+
+    public function FAQ()
+    {
+        $faqs = FAQ::orderBy('sort')->get();
+
+        return view('faq', ['faqs' => $faqs]);
+    }
+
+    public function Subscription()
+    {
+        $data = Information::where('key', 'page_subscription')->first();
+
+        return view('subscription', ['data' => $data]);
     }
 }

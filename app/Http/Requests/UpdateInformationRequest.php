@@ -24,9 +24,11 @@ class UpdateInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'sort' => 'sometimes|required|integer',
+            'key' => 'sometimes|required|string',
             'title' => 'sometimes|required|string',
-            'content' => 'sometimes|required|string',
+            'title_zh' => 'sometimes|nullable|string',
+            'content' => 'sometimes|nullable|string',
+            'content_zh' => 'sometimes|nullable|string',
         ];
     }
 }

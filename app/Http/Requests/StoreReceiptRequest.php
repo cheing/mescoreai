@@ -26,8 +26,8 @@ class StoreReceiptRequest extends FormRequest
         return [
             'user_id' => 'required|integer',
             'username' => 'required|string',
-            'email' => 'required|email',
-            'file_path' => 'required|string',
+            'email' => 'nullable|email',
+            'file_path' => 'nullable|string',
         ];
     }
 }

@@ -10,5 +10,5 @@ class FAQ extends Model
     use HasFactory;
     protected $table = 'faqs';
 
-    protected $fillable = ['title', 'content', 'sort'];
+    protected $fillable = ['title', 'title_zh', 'content', 'content_zh', 'sort'];
 }

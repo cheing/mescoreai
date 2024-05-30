@@ -20,7 +20,7 @@ class InformationController extends Controller
      */
     public function index(Request $request)
     {
-        $sort = $request->input('sort', 'sort');
+        $sort = $request->input('sort', 'key');
         $direction = $request->input('direction', 'asc');
 
         $informations = Information::orderBy($sort, $direction)

@@ -7,8 +7,11 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'me88scoreAI') }}</title>
+  <title>me scoreAI: Eurocup Live Streaming 2024</title>
+  <meta name="description"
+    content="Join me scoreAI now and gain exclusive lifetime access to AI-driven sports predictions and watch Eurocup Live Streaming 2024.">
 
+  <meta name="google-site-verification" content="IRnva_WSWrMdskIk94nIzCviGQST13l6igiOIhs5v2s" />
   <!-- Scripts -->
   <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 
@@ -18,7 +21,7 @@
   <!-- Styles -->
 
   <!-- Favicons -->
-  <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png" />
+  <link rel="icon" href="{{ asset('images/favicon.png?v=1') }}" type="image/png" />
   {{--
   <link href="{{ asset('images/favicon.png') }}" rel="icon"> --}}
   {{--
@@ -29,7 +32,7 @@
   <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/jquery-confirm-master/css/jquery-confirm.css') }}" />
   <!-- Template Main CSS File -->
-  <link href="{{ asset('css/custom.css?v=6') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css?v=9') }}" rel="stylesheet">
   <link href="{{ asset('css/responsive.css?v=6') }}" rel="stylesheet">
   <link href="{{ asset('css/color.css') }}" rel="stylesheet">
 </head>
@@ -73,7 +76,7 @@
 
               </div>
             </div>
-            <div class="col-md-5 col-sm-4">
+            <div class="col-md-7 col-sm-4">
               <nav class="main-nav">
                 <ul>
                   <li class="nav-item">
@@ -82,22 +85,32 @@
                       __('messages.nav_home')
                       }}</a>
                   </li>
-                  {{-- <li class="nav-item">
-                    <a href="{{route('home2')}}" class="{{ request()->routeIs('home2')  ? 'active' : '' }}">Home 2</a>
-                  </li> --}}
                   <li class="nav-item">
                     <a href="{{route('matches')}}" class="{{ request()->routeIs('matches') ? 'active' : '' }}">{{
                       __('messages.nav_match')
                       }}
                     </a>
                   </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('subscription')}}"
+                      class="{{ request()->routeIs('subscription')  ? 'active' : '' }}">{{
+                      __('messages.nav_subscription')
+                      }}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">{{
+                      __('messages.nav_faq')
+                      }}
+                    </a>
+                  </li>
                   @auth
-                  <li class="nav-item d-block d-sm-none">
+                  {{-- <li class="nav-item d-block d-sm-none">
                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{
                       __('messages.btn_change_password')
                       }}
                     </button>
-                  </li>
+                  </li> --}}
                   <li class="nav-item d-block d-sm-none">
                     <button type="button" class="dropdown-item"
                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
@@ -137,7 +150,7 @@
                 </ul>
               </nav>
             </div>
-            <div class="col-md-5 col-sm-3">
+            <div class="col-md-3 col-sm-3">
               <nav class="main-nav2">
                 <ul>
                   <!-- 如果用户已登录 -->
@@ -149,9 +162,10 @@
                         __('messages.text_account')
                         }} </button>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{
+                        {{-- <button type="button" class="dropdown-item" data-toggle="modal"
+                          data-target="#modalPassword">{{
                           __('messages.btn_change_password')
-                          }} </button>
+                          }} </button> --}}
                         <button type="button" class="dropdown-item"
                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
                           __('messages.btn_logout')
@@ -218,7 +232,7 @@
             <div class="footer-widget">
               <h4 class="text-uppercase">{{
                 __('messages.text_sponsor')
-                }}</h4> <a href="https://playme1.asia/register?affid=5678">
+                }}</h4> <a href="https://me88cash.com/register?affid=5678">
                 <div class="d-flex justify-content-center align-items-center">
 
                   <img src="{{asset('images/logo-me88.png')}}" class="flex-img" /><img
@@ -266,7 +280,7 @@
     @endguest
     <div class="chat-tg">
       <a href="https://t.me/mescoreaiofficial/" target="_blank">
-        <img src="{{ asset('images/icons8-telegram-app.svg')}}" style="width:30px;margin-left:10px" />
+        <img src="{{ asset('images/icons8-telegram-app.svg')}}" style="width:30px;margin-left:8px" />
         <span class="text"> {{
           __('messages.text_chat_with_us')
           }}</span>
@@ -448,7 +462,7 @@ if (currentCode && (!existingCode || existingCode !== currentCode)) {
 var affiliateCode = localStorage.getItem('affiliateCode');
 if (affiliateCode) {
     // Use the affiliate code as needed, for example, update links.
-    $("a.afflink").attr("href", "https://playme1.asia/register?affid=" + affiliateCode);
+    $("a.afflink").attr("href", "https://me88cash.com/register?affid=" + affiliateCode);
 }
 
 
@@ -470,7 +484,7 @@ if (affiliateCode) {
 //     };
 
 //     var affiliate = getUrlParameter('aff') || getUrlParameter('code');
-//     $("a.afflink").attr("href", "https://playme1.asia/register?affid=" + affiliate);
+//     $("a.afflink").attr("href", "https://me88cash.com/register?affid=" + affiliate);
 //     $("a.afflink").attr("target", "_top");
 // }
 

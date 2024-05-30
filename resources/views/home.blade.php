@@ -12,11 +12,11 @@
       </iframe>
 
     </div>
-    <a href="https://playme1.asia/register?affid=5678" class="afflink">
+    <a href="https://me88cash.com/register?affid=5678" class="afflink">
       <img src="{{asset('images/adbanner20240524.gif')}}" class="banner" /></a>
 
     <div class="d-flex justify-content-center align-items-center mt-4">
-      <a href="https://playme1.asia/register?affid=5678" class="afflink btn btn-primary text-uppercase mr-4">{{
+      <a href="https://me88cash.com/register?affid=5678" class="afflink btn btn-primary text-uppercase mr-4">{{
         __('messages.btn_bet_now')
         }}<div class="fill-one">
         </div>
@@ -36,16 +36,32 @@
       <div class="row">
         <div class="col-lg-12 col-md-12">
           <div class="section-title white">
-            <h2>{{ __('messages.text_welcome_to_me_scoreAI')
-              }} </h2>
+            @if(isset($text_welcome->title))
+            @if(App::getLocale() == 'en')
+            <h2> {{ $text_welcome->title}}</h2>
+            @else
+            <h2> {{$text_welcome->title_zh}}</h2>
+            @endif
+            @endif
+
           </div>
-          <ul class="list-1 text-white">
+
+          @if(isset($text_welcome->content))
+          @if(App::getLocale() == 'en')
+          {!! $text_welcome->content !!}
+          @else
+          {!! $text_welcome->content_zh !!}
+          @endif
+          @endif
+          {{-- <ul class="list-1 text-white">
+
+
             {!! __('messages.text_welcome_content') !!}
           </ul>
           <div class="d-flex align-items-center justify-content-center">
             <a href="https://t.me/mescoreai/" class="m-4 btn-primary text-uppercase">{{ __('messages.btn_hurry')
               }}</a>
-          </div>
+          </div> --}}
         </div>
       </div>
     </div>
@@ -100,17 +116,12 @@
         <tfoot>
           <tr>
             <td>
-              <a href="https://playme1.asia/register?affid=5678" class="btn btn-primary btn-animate afflink"
+              <a href="https://me88cash.com/register?affid=5678" class="btn btn-primary btn-animate afflink"
                 style="text-transform: inherit">
                 {{
                 __('messages.btn_deposit')
                 }}
               </a>
-              <br /><br />
-              <span class="d-flex justify-content-center align-items-center ">
-                {{
-                __('messages.text_100_sports_welcome_bonus_in_me88')
-                }}</span>
             </td>
           </tr>
         </tfoot>
