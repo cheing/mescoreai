@@ -285,6 +285,16 @@
             @endforeach
           </div>
           <!--- accordionMatch End -->
+
+          <div class="row justify-content-center mt-4">
+            <div class="col-12 col-md-auto mb-2 mb-md-0">
+              <!-- Stacks on small devices, inline on medium and up -->
+              <a href="https://me88cash.com/register?affid=5678" class="afflink btn btn-primary text-uppercase w-100">
+                {{ __('messages.btn_bet_now') }}
+                <div class="fill-one"></div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

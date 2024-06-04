@@ -6,7 +6,7 @@ return [
     'nav_match' => 'Match Prediction',
     'nav_subscription' => 'Subscription',
 
-    'btn_bet_now' => 'Bet Now',
+    'btn_bet_now' => 'Claim 100% Sports Bonus',
     'btn_change_password' => 'Change Password',
     'btn_deposit' => 'DEPOSIT me88 NOW',
     'btn_hurry' => 'Hurry and join Telegram!',

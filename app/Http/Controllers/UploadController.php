@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadReceiptRequest;
+use App\Models\Package;
 use App\Models\Receipt;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +51,34 @@ class UploadController extends Controller
             $receipt->file_path = $filePath;
             $receipt->submitted_at = Now();
             $receipt->save();
+
+            // check is user subscription exist
+            $exist = Subscription::where('user_id', $user->id)->get();
+            if (count($exist) <= 0) {
+                // Retrieve the package using the provided package_id
+                $package = Package::first();
+
+                // Calculate the end date based on the package duration
+                if ($package->duration) {
+                    $end_date = Carbon::now()->addDays($package->duration);
+                } else {
+                    // If no duration is provided, you might consider this as unlimited
+                    $end_date = null; // Or use Carbon::now()->addYears(100) if you need a placeholder far in the future
+                }
+
+                // Create the subscription
+                $subscription = new Subscription();
+                $subscription->user_id = $user->id;
+                $subscription->package_id = $package->id;
+                $subscription->start_date = Now();
+                $subscription->end_date = $end_date;
+                $subscription->status = 'active';
+                $subscription->save();
+
+                // Update the receipt status
+                $receipt->processed = true;
+                $receipt->save();
+            }
 
             return response()->json(['message' => 'Upload successful']);
         } catch (\Exception $e) {

@@ -15,17 +15,22 @@
     <a href="https://me88cash.com/register?affid=5678" class="afflink">
       <img src="{{asset('images/adbanner20240524.gif')}}" class="banner" /></a>
 
-    <div class="d-flex justify-content-center align-items-center mt-4">
-      <a href="https://me88cash.com/register?affid=5678" class="afflink btn btn-primary text-uppercase mr-4">{{
-        __('messages.btn_bet_now')
-        }}<div class="fill-one">
-        </div>
-      </a>
-      <a href="{{route('matches')}}" class="btn btn-primary text-uppercase">{{ __('messages.btn_match_prediction')
-        }} <div class="fill-two">
-        </div>
-      </a>
+    <div class="row justify-content-center mt-4">
+      <div class="col-12 col-md-auto mb-2 mb-md-0">
+        <!-- Stacks on small devices, inline on medium and up -->
+        <a href="https://me88cash.com/register?affid=5678" class="afflink btn btn-primary text-uppercase w-100">
+          {{ __('messages.btn_bet_now') }}
+          <div class="fill-one"></div>
+        </a>
+      </div>
+      <div class="col-12 col-md-auto">
+        <a href="{{ route('matches') }}" class="btn btn-primary text-uppercase w-100">
+          {{ __('messages.btn_match_prediction') }}
+          <div class="fill-two"></div>
+        </a>
+      </div>
     </div>
+
   </div>
 </div>
 <!--Main Content Start-->
@@ -161,6 +166,27 @@
   <!--Subscription end-->
 </div>
 <!--Main Content End-->
+<!-- Popup Modal -->
+{{-- <div id="popup" class="popup" style="display:none;">
+  <img src="{{ asset(__('media.banner_popout')) }}" alt="Popup Image">
+  <button onclick="closePopup()">Close</button>
+</div> --}}
+
+<div class="modal fade" id="imagePopup" tabindex="-1" role="dialog" aria-labelledby="imagePopupLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="background: transparent">
+      <div class="modal-body p-0" style="position: relative">
+        <button type="button" class="close" style="color:#fff; position: absolute; right:15px; top:10px"
+          data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <a href="https://me88cash.com/register?affid=5678" class="afflink"><img
+            src="{{ asset(__('media.banner_popout')) }}" alt="" class="img-fluid"></a>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('footer')

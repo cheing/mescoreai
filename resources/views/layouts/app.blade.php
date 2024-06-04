@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="robots" content="noindex, nofollow">
 
   <title>me scoreAI: Eurocup Live Streaming 2024</title>
   <meta name="description"
@@ -269,6 +270,7 @@
         </div>
       </div>
     </footer>
+
     <!--Main Footer End-->
     @auth
     @include('components.modal-upload')
@@ -287,6 +289,10 @@
 
       </a>
     </div>
+
+
+
+
   </div>
   <!--Wrapper End-->
 
@@ -309,6 +315,24 @@
   {!! JsValidator::formRequest('App\Http\Requests\UploadReceiptRequest', '#form-upload'); !!}
 
   <script>
+    $(document).ready(function() {
+        // Show the modal after 5 seconds
+        // setTimeout(function() {
+        //     $('#popup').style.display = 'block';
+        // }, 5000);
+
+        setTimeout(function() {
+                $('#imagePopup').modal('show');
+            }, 5000);
+
+        // $('#popup').css('display','block');
+
+    });
+    // function closePopup() {
+    //   // $('#popup').style.display = 'none';
+    //   $('#popup').css('display','none');
+    // }
+
     $('#form-register').submit(function(e) {
       e.preventDefault();
       var _btn = $('#btn-register');

@@ -6,7 +6,7 @@ return [
     'nav_match' => '比赛预测',
     'nav_subscription' => '订阅',
 
-    'btn_bet_now' => '立即投注',
+    'btn_bet_now' => '领取 100% 体育奖金',
     'btn_change_password' => '更改密码',
     'btn_deposit' => '立即存款',
     'btn_hurry' => '赶快加入 Telegram 吧！',
