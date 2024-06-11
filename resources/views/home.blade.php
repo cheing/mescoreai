@@ -137,6 +137,8 @@
   </section>
 
   <!--Subscription start-->
+  @if(auth()->check())
+  @if(!auth()->user()->activeSubscription())
   <section class="subscription wf100 p40">
     <div class="container">
       <div class="d-flex  flex-column flex-md-row  justify-content-between align-items-center">
@@ -163,6 +165,8 @@
       </div>
     </div>
   </section>
+  @endif
+  @endif
   <!--Subscription end-->
 </div>
 <!--Main Content End-->
@@ -193,6 +197,29 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
 
 <script>
+  $(document).ready(function() {
+    // 如果没有其他模态框显示，则延迟5秒显示imagePopup
+    setTimeout(function() {
+        if ($('.modal.show').length === 0 && $('#imagePopup').data('shown') !== true) {
+            $('#imagePopup').modal('show');
+            $('#imagePopup').data('shown', true); // 标记imagePopup已显示
+        }
+    }, 5000);
+
+    // 每次模态框关闭时检查是否需要显示imagePopup
+    $('.modal').on('hidden.bs.modal', function () {
+        // 确保是imagePopup关闭，并且没有其他模态框是显示状态
+        if (this.id === 'imagePopup') {
+            // 如果是imagePopup被关闭，不再显示
+            $('#imagePopup').data('shown', true); // 确保标记已设置，防止再次显示
+        } else if ($('.modal.show').length === 0 && $('#imagePopup').data('shown') !== true) {
+            // 如果是其他模态框被关闭，检查是否需要显示imagePopup
+            $('#imagePopup').modal('show');
+            $('#imagePopup').data('shown', true); // 标记imagePopup已显示
+        }
+    });
+});
+
   document.addEventListener("DOMContentLoaded", function() {
       var videoElement = document.querySelector('video');
   
@@ -219,11 +246,6 @@
       // Observe the video element
       observer.observe(videoElement);
   });
-
-
-
-
-
 </script>
 
 

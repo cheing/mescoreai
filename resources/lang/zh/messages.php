@@ -24,6 +24,7 @@ return [
     'date_format' => 'n月 d日', // PHP date format adjusted for Chinese
 
     'text_account' => '账号',
+    'text_ady_subscribe' => '太棒了！您已成功订阅。立即开始享受您的预测功能吧！',
     'text_already_have_account' => '已有帐户？',
     'text_change_password' => '更改密码',
     'text_chat_with_us' => '与我们聊天',

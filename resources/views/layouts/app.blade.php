@@ -315,24 +315,6 @@
   {!! JsValidator::formRequest('App\Http\Requests\UploadReceiptRequest', '#form-upload'); !!}
 
   <script>
-    $(document).ready(function() {
-        // Show the modal after 5 seconds
-        // setTimeout(function() {
-        //     $('#popup').style.display = 'block';
-        // }, 5000);
-
-        setTimeout(function() {
-                $('#imagePopup').modal('show');
-            }, 5000);
-
-        // $('#popup').css('display','block');
-
-    });
-    // function closePopup() {
-    //   // $('#popup').style.display = 'none';
-    //   $('#popup').css('display','none');
-    // }
-
     $('#form-register').submit(function(e) {
       e.preventDefault();
       var _btn = $('#btn-register');

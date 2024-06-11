@@ -24,6 +24,7 @@ return [
     'date_format' => 'd M', // PHP date format
 
     'text_account' => 'Account',
+    'text_ady_subscribe' => 'Your subscription has been activated successfully. You may now access all premium predictions.',
     'text_already_have_account' => 'Already have account?',
     'text_change_password' => 'Change Password',
     'text_chat_with_us' => 'Chat with us',

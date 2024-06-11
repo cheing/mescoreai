@@ -72,14 +72,14 @@
                 @if($receipt->file_path)
                 @if(in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif']))
                 <!-- Display as image -->
-                <a class="lightbox-image" data-lightbox="gallery"
-                  href="{{ Storage::disk('public')->url($receipt->file_path) }}" target="_blank">
-                  <img src="{{ Storage::disk('public')->url($receipt->file_path) }}" alt="profile image"
+                <a class="lightbox-image" data-lightbox="gallery" href="{{ Storage::url($receipt->file_path) }}"
+                  target="_blank">
+                  <img src="{{ Storage::url($receipt->file_path) }}" alt="profile image"
                     class="profile-img img-lg rounded-circle" id="image_url" />
                 </a>
                 @elseif($fileExtension === 'pdf')
                 <!-- Download PDF -->
-                <a href="{{ Storage::disk('public')->url($receipt->file_path) }}" target="_blank">
+                <a href="{{ Storage::url($receipt->file_path) }}" target="_blank">
                   <span class="profile-img img-lg rounded-circle d-flex justify-content-center align-items-center"
                     style="background:#eee; color:#333">
                     <i class="fa fa-file-pdf-o"></i>

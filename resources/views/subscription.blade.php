@@ -6,6 +6,12 @@
   <div class="match-results wf100 p40">
     <div class="container">
       <div class="row">
+        @if(auth()->check())
+        @if(auth()->user()->activeSubscription())
+        <div class="col-12 text-center p-5">
+          <p class="text-white">{{ __('messages.text_ady_subscribe')}} </p>
+        </div>
+        @else
         <div class="col-6">
           <div class="section-title white mb-5">
             <h2 class="text-uppercase">{{ __('messages.text_subscription')}} </h2>
@@ -23,7 +29,6 @@
         <div class="col-6">
           <div class="card bg-slate text-white">
             <div class="card-body p-4">
-              @if(Auth::user())
               <h4 class="text-uppercase pt-2">{{ __('messages.text_upload')}} </h4>
               <p>{{
                 __('messages.text_upload_detail')
@@ -61,7 +66,31 @@
                     }}</button>
                 </div>
               </form>
-              @else
+            </div>
+          </div>
+        </div>
+        @endif
+
+        @else
+
+        <div class="col-6">
+          <div class="section-title white mb-5">
+            <h2 class="text-uppercase">{{ __('messages.text_subscription')}} </h2>
+          </div>
+          <div class="text-white">
+            @if(isset($data->content))
+            @if(App::getLocale() == 'en')
+            {!! $data->content !!}
+            @else
+            {!! $data->content_zh !!}
+            @endif
+            @endif
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card bg-slate text-white">
+            <div class="card-body p-4">
+
 
               <br />
               <!-- form -->
@@ -101,10 +130,11 @@
                   __('messages.text_sign_up')
                   }} </a>
               </div>
-              @endif
             </div>
           </div>
         </div>
+
+        @endif
       </div>
     </div>
   </div>
