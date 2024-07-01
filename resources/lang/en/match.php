@@ -16,4 +16,5 @@ return [
     'text_tip' => 'Tip',
     'text_upcoming' => 'Upcoming',
     'text_win_rate' => 'Win Rate',
+    'text_in_progress' => 'In progress',
     ];

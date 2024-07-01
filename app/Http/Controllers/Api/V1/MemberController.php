@@ -24,11 +24,21 @@ class MemberController extends Controller
         $sort = $request->input('sort', 'username');
         $direction = $request->input('direction', 'asc');
 
+        if (null !== $request->input('keyword')) {
+            $keyword = '%'.strtolower($request->input('keyword')).'%';
+        } else {
+            $keyword = '';
+        }
+
         $members = User::where('role', 'member')
+        ->when($keyword != '', function ($q) use ($keyword) {
+            return $q->whereRaw('concat(LOWER(username), LOWER(username)) LIKE ?', $keyword);
+        })
         ->orderBy($sort, $direction)->paginate($this->limits);
 
         return view('admin.members.index', [
             'members' => $members,
+            'keyword' => $request->input('keyword'),
         ]);
     }
 

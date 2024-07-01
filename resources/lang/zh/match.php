@@ -16,4 +16,5 @@ return [
     'text_tip' => '预测',
     'text_upcoming' => '即将到来',
     'text_win_rate' => '胜率',
+    'text_in_progress' => '进行中',
 ];

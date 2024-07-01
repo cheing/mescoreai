@@ -36,7 +36,11 @@ class MatchesController extends Controller
                                      ->orderBy('start_time', 'asc')
                                      ->first();
 
-            $date = optional($match)->start_time->format('Y-m-d') ?? $today->toDateString();
+            // $date = optional($match)->start_time->format('Y-m-d') ?? $today->toDateString();
+            // $date = optional($match->start_time)->format('Y-m-d') ?? $today->toDateString();
+            // 假设 $match 可能为 null 或可能没有 start_time
+            // $date = optional($match)->start_time ? $match->start_time->format('Y-m-d') : $today->toDateString();
+            $date = optional(optional($match)->start_time)->format('Y-m-d') ?? $today->toDateString();
         }
 
         // 获取指定日期的所有赛事
@@ -70,7 +74,8 @@ class MatchesController extends Controller
                                    ->orderBy('start_time', 'asc')
                                    ->first();
 
-        $baseDate = optional($nextAvailableMatch)->start_time->startOfDay() ?? $today;
+        // $baseDate = optional($nextAvailableMatch)->start_time->startOfDay() ?? $today;
+        $baseDate = optional(optional($nextAvailableMatch)->start_time)->startOfDay() ?? $today;
         // 获取基准日期之前的三个有赛事的日期
         $datesBefore = TournamentMatch::selectRaw('DATE(start_time) as date')
                             ->where('start_time', '<', $baseDate)

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -133,6 +132,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'password' => [
+            'required' => 'The password field is required.',
+            'min' => 'The password must be at least :min characters.',
+            'symbols' => 'The password must contain at least one symbol.',
+            // Check if custom messages are being used and refer to `:attribute` correctly
+        ],
     ],
 
     /*
@@ -146,6 +151,8 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'password' => 'Password',
+        'password_confirmation' => 'Confirm Password',
+],
 ];

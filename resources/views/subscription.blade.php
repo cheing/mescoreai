@@ -12,7 +12,7 @@
           <p class="text-white">{{ __('messages.text_ady_subscribe')}} </p>
         </div>
         @else
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
           <div class="section-title white mb-5">
             <h2 class="text-uppercase">{{ __('messages.text_subscription')}} </h2>
           </div>
@@ -26,7 +26,7 @@
             @endif
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
           <div class="card bg-slate text-white">
             <div class="card-body p-4">
               <h4 class="text-uppercase pt-2">{{ __('messages.text_upload')}} </h4>
@@ -73,7 +73,7 @@
 
         @else
 
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
           <div class="section-title white mb-5">
             <h2 class="text-uppercase">{{ __('messages.text_subscription')}} </h2>
           </div>
@@ -87,7 +87,7 @@
             @endif
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
           <div class="card bg-slate text-white">
             <div class="card-body p-4">
 
@@ -114,6 +114,14 @@
                     }}</label>
                   <input type="password" class="form-control" id="inputPassword1" name="password">
                 </div>
+                @if (Route::has('password.request'))
+                <div class="form-group">
+
+                  <a class="btn btn-link text-white " href="{{ route('password.request') }}">
+                    {{ __('Forgot Your Password?') }}
+                  </a>
+                </div>
+                @endif
                 <div class="d-flex align-items-center justify-content-end my-4">
 
                   <button id="btn-login" type="submit" class="btn btn-block btn-primary">{{

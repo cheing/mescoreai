@@ -71,4 +71,5 @@ return [
     <li>大部分数据来自 Rapid API 平台提供的 API-Football</li>
     <li>通过 AI 算法推演，me scoreAI 直接提供简化形式的预测和解释</li>',
     'text_100_sports_welcome_bonus_in_me88' => 'me88 100%欢迎奖金',
+    
 ];

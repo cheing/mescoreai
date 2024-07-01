@@ -34,6 +34,7 @@ Route::get('/subscription', 'HomeController@Subscription')->name('subscription')
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
+Route::get('/test', 'HomeController@test')->name('test');
 
 /* Admin */
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -80,6 +81,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('change-password', 'HomeController@changePassword')->name('change-password');
     Route::post('upload-receipt', 'UploadController@upload')->name('upload-receipt');
 });
+Route::post('upload-receipt-email', 'UploadController@uploadEmail')->name('upload-receipt-email');
 
 Route::get('/create-storage-link', function () {
     Artisan::call('storage:link');

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\StoreMemberRequest;
-use App\Http\Resources\V1\UserResource;
 use App\Models\FAQ;
 use App\Models\Information;
 use App\Models\Package;
@@ -120,7 +119,6 @@ class HomeController extends Controller
         } else {
             return $this->JsonError('Wrong Password');
         }
-        // return new UserResource(User::create($data));
     }
 
     public function Login(LoginRequest $request)
@@ -164,5 +162,10 @@ class HomeController extends Controller
         $data = Information::where('key', 'page_subscription')->first();
 
         return view('subscription', ['data' => $data]);
+    }
+
+    public function test()
+    {
+        return view('test');
     }
 }

@@ -122,6 +122,36 @@
         this.classList.toggle("bi-x");
     });
 
+    // Function to hide the mobile navigation
+    function hideMobileNav() {
+        var navbar = document.querySelector("#navbar");
+        var mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+        if (navbar && navbar.classList.contains("navbar-mobile")) {
+            navbar.classList.remove("navbar-mobile");
+            if (mobileNavToggle) {
+                mobileNavToggle.classList.remove("bi-x");
+                mobileNavToggle.classList.add("bi-list");
+            }
+        }
+    }
+
+    // Setup event listeners using jQuery
+    $(document).ready(function () {
+        // Toggle mobile navigation
+        $(".mobile-nav-toggle").on("click", function () {
+            $("#navbar").toggleClass("navbar-mobile");
+            $(this).toggleClass("bi-list bi-x");
+        });
+
+        // Hide mobile nav when login or register is clicked
+        $(".login a, .register a").on("click", function () {
+            // hideMobileNav();
+            alert("test");
+        });
+
+        // Additional existing scripts
+        // Add other initializations and event bindings
+    });
     /**
      * Mobile nav dropdowns activate
      */
@@ -252,3 +282,20 @@ function stopSpin(el) {
     el.html(el.data("ori"));
     el.removeClass("disabled");
 }
+
+// Function to hide the mobile navigation
+function hideMobileNav() {
+    var navbar = document.querySelector("#navbar");
+    if (navbar.classList.contains("navbar-mobile")) {
+        navbar.classList.remove("navbar-mobile");
+        mobileNavToggle.classList.remove("bi-x");
+        mobileNavToggle.classList.add("bi-list");
+    }
+}
+
+// Add event listeners for modal triggers
+$(".login a, .register a").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+        hideMobileNav();
+    });
+});

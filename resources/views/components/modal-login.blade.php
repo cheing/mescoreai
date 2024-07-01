@@ -31,6 +31,15 @@
               }}</label>
             <input type="password" class="form-control" id="inputPassword1" name="password">
           </div>
+          @if (Route::has('password.request'))
+          <div class="form-group">
+
+            <a class="btn btn-link text-white " href="{{ route('password.request') }}">
+              {{ __('Forgot Your Password?') }}
+            </a>
+          </div>
+          @endif
+
           <div class="d-flex align-items-center justify-content-end my-4">
 
             <button id="btn-login" type="submit" class="btn btn-block btn-primary">{{

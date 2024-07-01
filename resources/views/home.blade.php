@@ -166,6 +166,33 @@
     </div>
   </section>
   @endif
+  @else
+  <section class="subscription wf100 p40">
+    <div class="container">
+      <div class="d-flex  flex-column flex-md-row  justify-content-between align-items-center">
+        <div class="title d-flex flex-column justify-content-center text-center text-md-left">
+          <h1>{{
+            __('messages.text_subscription')
+            }}</h1>
+          <p>{{
+            __('messages.text_subscription_desc')
+            }}</p>
+        </div>
+        <div class="button">
+          @auth
+          <a data-toggle="modal" data-target="#modalSubscription" class="btn btn-primary text-uppercase">{{
+            __('messages.btn_subscription')
+            }}</a>
+          @endauth
+          @guest
+          <a data-toggle="modal" data-target="#modalLogin" class="btn btn-primary text-uppercase">{{
+            __('messages.btn_subscription')
+            }}</a>
+          @endguest
+        </div>
+      </div>
+    </div>
+  </section>
   @endif
   <!--Subscription end-->
 </div>

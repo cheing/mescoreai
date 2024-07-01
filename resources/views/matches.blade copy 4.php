@@ -278,10 +278,7 @@
                               <th></th>
                             </tr>
                             <tr>
-                              {{-- @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >=
-                                120) --}}
-                                @if($matchStartTime->diffInMinutes(now(), false) >=90)
-
+                              @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >= 120)
                                 @include('partials.match_predictions_mobile', ['match' => $match])
 
                                 @elseif(auth()->check())

@@ -121,17 +121,10 @@
                   @endauth
                   @guest
                   <li class="nav-item login d-block d-sm-none">
-                    <a data-toggle="modal" data-target="#modalLogin">
-                      {{
-                      __('messages.btn_login')
-                      }}
-                    </a>
+                    <a href="#" data-toggle="modal" data-target="#modalLogin">{{ __('messages.btn_login') }}</a>
                   </li>
-
                   <li class="nav-item register d-block d-sm-none">
-                    <a data-toggle="modal" data-target="#modalRegister">{{
-                      __('messages.btn_register')
-                      }}</a>
+                    <a href="#" data-toggle="modal" data-target="#modalRegister">{{ __('messages.btn_register') }}</a>
                   </li>
                   @endguest
                   <li class="nav-item d-block d-sm-none">
@@ -317,6 +310,8 @@
   <script>
     $('#form-register').submit(function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Stop the event from bubbling up the DOM tree
+
       var _btn = $('#btn-register');
       if (!$(this).valid()) return false;
       startSpin($(_btn));
@@ -326,21 +321,25 @@
         type: $(this).attr('method'),
         data: formData,
       }).fail(function(xhr, text, err) {
-         notifySystemError(err);
+
+          var error = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Error';
+         notifySystemError(error);
       }).done(function(data) {
-        notifySuccess('Successfully Register');
-        $('#modalRegister').hide();
-        setTimeout(() => {
-            location.reload();
-          }, 2000);
+          notifySuccess('Successfully Register');
+          $('#modalRegister').hide();
+          setTimeout(() => {
+              location.reload();
+            }, 2000);
+          
       }).always(function() {
-          stopSpin($(this));
+          stopSpin($(_btn));
       });
   });
 
 
   $('#form-login').submit(function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Stop the event from bubbling up the DOM tree
       var _btn = $('#btn-login');
       if (!$(this).valid()) return false;
       startSpin($(_btn));
@@ -350,7 +349,8 @@
         type: $(this).attr('method'),
         data: formData,
       }).fail(function(xhr, text, err) {
-         notifySystemError(err);
+        var error = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Error';
+        notifySystemError(error);
       }).done(function(data) {
 
         if(data['result']){
@@ -364,16 +364,16 @@
             notifyError(data['error']);
           }
         }
-        stopSpin($(this));
 
         
       }).always(function() {
-          stopSpin($(this));
+          stopSpin($(_btn));
       });
   });
 
   $('#form-password').submit(function(e) {
       e.preventDefault();
+      e.stopPropagation(); // Stop the event from bubbling up the DOM tree
       var _btn = $('#btn-password');
       if (!$(this).valid()) return false;
       startSpin($(_btn));
@@ -383,8 +383,9 @@
         type: $(this).attr('method'),
         data: formData,
       }).fail(function(xhr, text, err) {
-         notifySystemError(err);
-      }).done(function(data) {
+        var error = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Error';
+        notifySystemError(error);
+            }).done(function(data) {
 
         if(data['message']){
           notifySuccess('Password change successfully');
@@ -394,19 +395,26 @@
             notifyError(data['error']);
           }
         }
-        stopSpin($(this));
 
         
       }).always(function() {
-          stopSpin($(this));
+          stopSpin($(_btn));
       });
   });
 
   $('#form-upload').submit(function(e) {
-      e.preventDefault();
+    e.preventDefault();  // Prevent the default form submission behavior
+    e.stopPropagation(); // Stop the event from bubbling up the DOM tree
       var _btn = $('#btn-upload');
       if (!$(this).valid()) return false;
       startSpin($(_btn));
+      if (_btn.prop('disabled')) {
+        // Prevent processing if the button is already disabled
+        return false;
+    }
+ // Disable the button to prevent double clicks
+ _btn.prop('disabled', true).text('Processing...');  // Optionally change the button text
+
       // Use FormData for file upload
       var formData = new FormData(this);
       $.ajax({
@@ -421,6 +429,11 @@
             if(data.message) {
                 notifySuccess(data.message);
                 $('#modalSubscription').modal('hide'); // Assuming you have a modal to hide
+
+                // Reload the page after a short delay to show the success message
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000); // Reload after 2 seconds
             } else if (data.error) {
                 notifyError(data.error);
             }
@@ -431,6 +444,8 @@
         },
         complete: function() {
             stopSpin(_btn);
+            // Optionally re-enable the button if the form needs to be resubmitted following corrections
+            _btn.prop('disabled', false).text('Submit');
         }
       });
   });
