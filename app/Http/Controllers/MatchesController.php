@@ -81,7 +81,7 @@ class MatchesController extends Controller
                             ->where('start_time', '<', $baseDate)
                             ->groupBy('date')
                             ->orderBy('date', 'desc')
-                            ->limit(2)
+                            ->limit(4)
                             ->get()
                             ->reverse()
                             ->pluck('date')
@@ -92,7 +92,7 @@ class MatchesController extends Controller
         ->where('start_time', '>', $baseDate->endOfDay()) // 从基准日期结束之后开始搜索
         ->groupBy('date')
         ->orderBy('date', 'asc')
-        ->limit(2)
+        ->limit(4)
         ->get()
         ->pluck('date')
         ->toArray();
