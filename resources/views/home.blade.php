@@ -7,16 +7,23 @@
   <div class="container text-center">
     {{-- <h2>{{ __('messages.text_football_livestream') }}</h2> --}}
     <div class="iframe-container">
-      <iframe src="https://www.youtube.com/embed/sqFkZYRMzY8?si=xjICELoUtrkNkx5O" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      {{-- <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
+
+      <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-      </iframe> --}}
-
+      </iframe>
     </div>
+    @if($youtube)
+    <div class="iframe-container">
+      {!! $youtube['content']!!}
+    </div>
+    @endif
+
+    {{-- <iframe src="https://www.youtube.com/embed/sqFkZYRMzY8?si=xjICELoUtrkNkx5O" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
+
     <a href="https://me88cash.com/register?affid=5678" class="afflink">
       <img src="{{asset('images/adbanner20240524.gif')}}" class="banner" /></a>
 
@@ -231,12 +238,12 @@
 <script>
   $(document).ready(function() {
     // 如果没有其他模态框显示，则延迟5秒显示imagePopup
-    setTimeout(function() {
-        if ($('.modal.show').length === 0 && $('#imagePopup').data('shown') !== true) {
-            $('#imagePopup').modal('show');
-            $('#imagePopup').data('shown', true); // 标记imagePopup已显示
-        }
-    }, 5000);
+    //setTimeout(function() {
+        //if ($('.modal.show').length === 0 && $('#imagePopup').data('shown') !== true) {
+          //  $('#imagePopup').modal('show');
+          //  $('#imagePopup').data('shown', true); // 标记imagePopup已显示
+       // }
+  //  }, 5000);
 
     // 每次模态框关闭时检查是否需要显示imagePopup
     $('.modal').on('hidden.bs.modal', function () {

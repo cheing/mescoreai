@@ -40,8 +40,9 @@ class HomeController extends Controller
         $packages = Package::where('status', 1)->orderby('sort', 'asc')->get();
         $text_welcome = Information::where('key', 'text_welcome')->first();
         $meta = Information::where('key', 'meta_home')->first();
+        $youtube = Information::where('key', 'youtube_home')->first();
 
-        return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome, 'meta' => $meta]);
+        return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome, 'meta' => $meta , 'youtube' => $youtube]);
     }
 
     public function index2()
