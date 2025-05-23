@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('meta_title', $meta->title ?? '')
+@section('meta_content', $meta->content ?? '')
 @section('content')
 <div class="main-content innerpagebg wf100">
   <div class="match-results wf100 p40">

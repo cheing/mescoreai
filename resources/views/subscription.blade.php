@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('meta_title', $meta->title ?? '')
+@section('meta_content', $meta->content ?? '')
 @section('content')
 <!--Main Content Start-->
 <div class="main-content innerpagebg wf100">

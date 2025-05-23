@@ -8,9 +8,16 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="robots" content="noindex, nofollow">
 
-  <title>me scoreAI: Eurocup Live Streaming 2024</title>
+  {{-- <title>me scoreAI: Eurocup Live Streaming 2024</title> --}}
+  {{--
   <meta name="description"
     content="Join me scoreAI now and gain exclusive lifetime access to AI-driven sports predictions and watch Eurocup Live Streaming 2024.">
+  --}}
+
+  <title>@yield('meta_title', 'me scoreAI: Eurocup Live Streaming 2025')</title>
+  <meta name="description"
+    content="@yield('meta_description', 'Join me scoreAI now and gain exclusive lifetime access to AI-driven sports predictions and watch Eurocup Live Streaming 2025.')">
+
 
   <meta name="google-site-verification" content="IRnva_WSWrMdskIk94nIzCviGQST13l6igiOIhs5v2s" />
   <!-- Scripts -->
@@ -93,40 +100,40 @@
                     </a>
                   </li>
 
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a href="{{route('subscription')}}"
                       class="{{ request()->routeIs('subscription')  ? 'active' : '' }}">{{
                       __('messages.nav_subscription')
                       }}</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                     <a href="{{route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">{{
                       __('messages.nav_faq')
                       }}
                     </a>
                   </li>
-                  @auth
+                  {{-- @auth --}}
                   {{-- <li class="nav-item d-block d-sm-none">
                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{
                       __('messages.btn_change_password')
                       }}
                     </button>
                   </li> --}}
-                  <li class="nav-item d-block d-sm-none">
+                  {{-- <li class="nav-item d-block d-sm-none">
                     <button type="button" class="dropdown-item"
                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
                       __('messages.btn_logout')
                       }}</button>
                   </li>
-                  @endauth
-                  @guest
+                  @endauth --}}
+                  {{-- @guest
                   <li class="nav-item login d-block d-sm-none">
                     <a href="#" data-toggle="modal" data-target="#modalLogin">{{ __('messages.btn_login') }}</a>
                   </li>
                   <li class="nav-item register d-block d-sm-none">
                     <a href="#" data-toggle="modal" data-target="#modalRegister">{{ __('messages.btn_register') }}</a>
                   </li>
-                  @endguest
+                  @endguest --}}
                   <li class="nav-item d-block d-sm-none">
 
                     <div class="d-flex justify-content-center align-items-center pt-2">
@@ -148,19 +155,19 @@
               <nav class="main-nav2">
                 <ul>
                   <!-- 如果用户已登录 -->
-                  @auth
+                  {{-- @auth
                   <li class="nav-item">
                     <div class="dropdown">
                       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> {{
                         __('messages.text_account')
                         }} </button>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"> --}}
                         {{-- <button type="button" class="dropdown-item" data-toggle="modal"
                           data-target="#modalPassword">{{
                           __('messages.btn_change_password')
                           }} </button> --}}
-                        <button type="button" class="dropdown-item"
+                        {{-- <button type="button" class="dropdown-item"
                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{
                           __('messages.btn_logout')
                           }}</button>
@@ -170,11 +177,11 @@
                       @csrf
                     </form>
                   </li>
-                  @endauth
+                  @endauth --}}
                   <!-- 如果用户未登录 -->
 
 
-                  @guest
+                  {{-- @guest
                   <li class="nav-item login">
                     <a data-toggle="modal" data-target="#modalLogin">
                       {{
@@ -190,7 +197,7 @@
                   </li>
 
 
-                  @endguest
+                  @endguest --}}
 
 
                 </ul>

@@ -90,6 +90,7 @@
                       <th>O/U</th>
                       <th>Correct Score</th>
                       <th>Best Tip</th>
+                      <th>Mix Parlay</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -116,6 +117,9 @@
                       <td>
                         <input type="text" class="form-control" name="best_tip" id="best_tip" /><br />
                         <input type="text" class="form-control mt-1" name="best_tip_odd" id="best_tip_odd" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" name="mixparlay" id="mixparlay" />
                       </td>
                     </tr>
                   </tbody>

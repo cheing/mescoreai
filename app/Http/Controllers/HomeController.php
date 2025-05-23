@@ -39,8 +39,9 @@ class HomeController extends Controller
 
         $packages = Package::where('status', 1)->orderby('sort', 'asc')->get();
         $text_welcome = Information::where('key', 'text_welcome')->first();
+        $meta = Information::where('key', 'meta_home')->first();
 
-        return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome]);
+        return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome, 'meta' => $meta]);
     }
 
     public function index2()
@@ -153,15 +154,17 @@ class HomeController extends Controller
     public function FAQ()
     {
         $faqs = FAQ::orderBy('sort')->get();
+        $meta = Information::where('key', 'meta_faq')->first();
 
-        return view('faq', ['faqs' => $faqs]);
+        return view('faq', ['faqs' => $faqs, 'meta' => $meta]);
     }
 
     public function Subscription()
     {
         $data = Information::where('key', 'page_subscription')->first();
+        $meta = Information::where('key', 'meta_subscription')->first();
 
-        return view('subscription', ['data' => $data]);
+        return view('subscription', ['data' => $data, 'meta' => $meta]);
     }
 
     public function test()

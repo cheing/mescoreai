@@ -38,10 +38,12 @@
         __('match.text_odd')
         }}" data-trigger="hover">{{ $match->correct_score_odd}}</span>
 </td>
-<td>
+{{-- <td>
     {{ $match->best_tip}}<br />
     <span class="badge badge-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="{{
         __('match.text_odd')
         }}" data-trigger="hover">{{ $match->best_tip_odd}}</span>
+</td> --}}
+<td> {{ $match->mixparlay}}
 </td>
-<td></td>
+{{-- <td></td> --}}

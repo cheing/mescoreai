@@ -17,4 +17,5 @@ return [
     'text_upcoming' => 'Upcoming',
     'text_win_rate' => 'Win Rate',
     'text_in_progress' => 'In progress',
+    'text_mixparlay' => 'Mix Parlay',
     ];

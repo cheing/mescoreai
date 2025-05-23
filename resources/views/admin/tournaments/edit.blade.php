@@ -156,6 +156,7 @@
                     <th class="text-center">O/U</th>
                     <th class="text-center">Correct Score</th>
                     <th class="text-center">Best Tip</th>
+                    <th class="text-center">Mix Parlay</th>
                     <th></th>
                 </tr>
             </thead>
@@ -191,6 +192,7 @@
                             class="badge badge-primary mt-1">{{$match->correct_score_odd}}</span></td>
                     <td>{{$match->best_tip}}<br /><span class="badge badge-primary mt-1">{{$match->best_tip_odd}}</span>
                     </td>
+                    <td>{{$match->mixparlay}}</td>
                     <td class="text-right">
                         <button type="button" class="btn btn-icons btn-success btn-edit-match"
                             data-id="{{$match->id}}"><i class="fa fa-pencil"></i></button>
@@ -514,6 +516,7 @@ JsValidator::formRequest('App\Http\Requests\StoreTournamentMatchRequest',
         $('#modalMatch #form-match #correct_score_odd').val(data.data.correct_score_odd);
         $('#modalMatch #form-match #best_tip').val(data.data.best_tip);
         $('#modalMatch #form-match #best_tip_odd').val(data.data.best_tip_odd);
+        $('#modalMatch #form-match #mixparlay').val(data.data.mixparlay);
 
 
         // 更新表单动作 URL

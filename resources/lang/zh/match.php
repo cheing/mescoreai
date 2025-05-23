@@ -17,4 +17,5 @@ return [
     'text_upcoming' => '即将到来',
     'text_win_rate' => '胜率',
     'text_in_progress' => '进行中',
+    'text_mixparlay' => '混合累积投注',
 ];

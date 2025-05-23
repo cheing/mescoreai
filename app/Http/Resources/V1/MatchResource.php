@@ -44,6 +44,7 @@ class MatchResource extends JsonResource
             'correct_score_odd' => $this->correct_score_odd ? $this->correct_score_odd : null,
             'best_tip' => $this->best_tip ? $this->best_tip : null,
             'best_tip_odd' => $this->best_tip_odd ? $this->best_tip_odd : null,
+            'mixparlay' => $this->mixparlay ? $this->mixparlay : null,
             'created_at' => Carbon::parse($this->created_at)->format('Y-m-d'),
             'updated_at' => Carbon::parse($this->updated_at)->format('Y-m-d'),
         ];

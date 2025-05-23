@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('meta_title', $meta->title ?? '')
+@section('meta_content', $meta->content ?? '')
 @section('content')
 <!--Secondary Nav-->
 <header class="secondary-nav d-flex">
@@ -27,7 +28,7 @@
                 __('match.text_predict_correct_rate')
                 }}</h3>
               <div class="progress-circle over50 p90">
-                <span>90.7%</span>
+                <span>{{$data['text_predict_correct_rate']['title']}}</span>
                 <div class="left-half-clipper">
                   <div class="first50-bar"></div>
                   <div class="value-bar"></div>
@@ -45,7 +46,7 @@
                 }}
               </h3>
               <div class="progress-circle over50 p83">
-                <span>83.2%</span>
+                <span>{{$data['text_win_rate']['title']}}</span>
                 <div class="left-half-clipper">
                   <div class="first50-bar"></div>
                   <div class="value-bar"></div>
@@ -61,7 +62,7 @@
                 __('match.text_correct_matches')
                 }}</h3>
               <div class="progress-circle over50 p51">
-                <span>51</span>
+                <span>{{$data['text_correct_matches']['title']}}</span>
                 <div class="left-half-clipper">
                   <div class="first50-bar"></div>
                   <div class="value-bar"></div>
@@ -117,10 +118,13 @@
                               <th>{{
                                 __('match.text_correct_score')
                                 }}</th>
-                              <th>{{
+                              {{-- <th>{{
                                 __('match.text_best_tip')
+                                }}</th> --}}
+                              <th>{{
+                                __('match.text_mixparlay')
                                 }}</th>
-                              <th></th>
+                              {{-- <th></th> --}}
                             </tr>
                           </thead>
                           <tbody>
@@ -179,29 +183,30 @@
                               {{-- @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >=
                                 120) --}}
                                 {{-- @if($matchStartTime < now() || $minutesDifference>= 90) --}}
-                                  @if($matchStartTime->diffInMinutes(now(), false) >=90)
+                                  @include('partials.match_predictions', ['match' => $match])
+                                  {{-- @if($matchStartTime->diffInMinutes(now(), false) >=90) --}}
 
                                   {{-- <td>@php echo $minutesDifference @endphp</td> --}}
 
 
                                   <!-- Conditions 1 and 2: Match is past or has been ongoing for at least 2 hours -->
-                                  @include('partials.match_predictions', ['match' => $match])
-                                  @else
-                                  @if(auth()->check())
+                                  {{-- @include('partials.match_predictions', ['match' => $match]) --}}
+                                  {{-- @else --}}
+                                  {{-- @if(auth()->check()) --}}
                                   <!-- Check user login and subscription status -->
-                                  @if(auth()->user()->activeSubscription() || Auth::user()->role == "admin")
+                                  {{-- @if(auth()->user()->activeSubscription() || Auth::user()->role == "admin") --}}
                                   <!-- Condition 3: User has an active subscription -->
-                                  @include('partials.match_predictions', ['match' => $match])
-                                  @else
+                                  {{-- @include('partials.match_predictions', ['match' => $match]) --}}
+                                  {{-- @else --}}
                                   <!-- Condition 5: User is logged in but does not have a subscription -->
-                                  @include('partials.locked_match_details')
-                                  @endif
-                                  @else
+                                  {{-- @include('partials.locked_match_details') --}}
+                                  {{-- @endif --}}
+                                  {{-- @else --}}
                                   <!-- Condition 4: User not logged in and match is upcoming -->
-                                  @include('partials.not_logged_match_details')
-                                  @endif
+                                  {{-- @include('partials.not_logged_match_details') --}}
+                                  {{-- @endif --}}
 
-                                  @endif
+                                  {{-- @endif --}}
                             </tr>
                             @endforeach
                           </tbody>
@@ -272,24 +277,27 @@
                               <th>{{
                                 __('match.text_correct_score')
                                 }} </th>
-                              <th>{{
+                              {{-- <th>{{
                                 __('match.text_best_tip')
+                                }} </th> --}}
+                              <th>{{
+                                __('match.text_mixparlay')
                                 }} </th>
-                              <th></th>
+                              {{-- <th></th> --}}
                             </tr>
                             <tr>
                               {{-- @if($match->start_time < now() || $match->start_time->diffInMinutes(now(), false) >=
                                 120) --}}
-                                @if($matchStartTime->diffInMinutes(now(), false) >=90)
+                                {{-- @if($matchStartTime->diffInMinutes(now(), false) >=90) --}}
+
+                                {{-- @include('partials.match_predictions_mobile', ['match' => $match]) --}}
+
+                                {{-- @elseif(auth()->check())
+                                @if(auth()->user()->activeSubscription()) --}}
 
                                 @include('partials.match_predictions_mobile', ['match' => $match])
 
-                                @elseif(auth()->check())
-                                @if(auth()->user()->activeSubscription())
-
-                                @include('partials.match_predictions_mobile', ['match' => $match])
-
-                                @else
+                                {{-- @else
                                 <td colspan="10">
                                   <button type="button" class="btn btn-icon" data-toggle="modal"
                                     data-target="#modalInfo">
@@ -304,7 +312,7 @@
                                     <i class="fa fa-lock"></i>
                                   </button>
                                 </td>
-                                @endif
+                                @endif --}}
                             </tr>
                           </tbody>
                         </table>
@@ -318,6 +326,14 @@
             @endforeach
           </div>
           <!--- accordionMatch End -->
+
+          <div class="row">
+            <div class="col-12 ">
+              <div class="card p-4 col-md-auto mb-2 mb-md-0">
+                {!! $data['text_matches_content']['content'] !!}
+              </div>
+            </div>
+          </div>
 
           <div class="row justify-content-center mt-4">
             <div class="col-12 col-md-auto mb-2 mb-md-0">

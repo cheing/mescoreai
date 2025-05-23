@@ -18,7 +18,9 @@
 <td>{{ $match->correct_score}}<br />
     <span class="badge badge-secondary ml-1">{{ $match->correct_score_odd}}</span>
 </td>
-<td> {{ $match->best_tip}}<br />
+{{-- <td> {{ $match->best_tip}}<br />
     <span class="badge badge-secondary ml-1">{{ $match->best_tip_odd}}</span>
+</td> --}}
+<td> {{ $match->mixparlay}}
 </td>
-<td></td>
+{{-- <td></td> --}}

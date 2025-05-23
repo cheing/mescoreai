@@ -7,6 +7,7 @@ use App\Models\TournamentMatch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Information;
 
 class MatchesController extends Controller
 {
@@ -62,7 +63,14 @@ class MatchesController extends Controller
         // echo '</pre>';
         $dates = $this->getMatchDates($date);
 
-        return view('matches', ['dates' => $dates, 'tournaments' => new TournamentCollection($tournaments)]);
+        
+        $data['text_predict_correct_rate'] = Information::where('key', 'text_predict_correct_rate')->first();
+        $data['text_win_rate'] = Information::where('key', 'text_win_rate')->first();
+        $data['text_correct_matches'] = Information::where('key', 'text_correct_matches')->first();
+        $meta = Information::where('key', 'meta_matches')->first();
+        $data['text_matches_content'] = Information::where('key', 'text_matches_content')->first();
+
+        return view('matches', ['dates' => $dates, 'tournaments' => new TournamentCollection($tournaments), 'data' => $data, 'meta' => $meta]);
     }
 
     public function getMatchDates($date)

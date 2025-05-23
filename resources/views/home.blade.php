@@ -1,15 +1,20 @@
 @extends('layouts.app')
+@section('meta_title', $meta->title ?? '')
+@section('meta_content', $meta->content ?? '')
 
 @section('content')
 <div class="hero_main wf100">
   <div class="container text-center">
-    <h2>{{ __('messages.text_football_livestream') }}</h2>
+    {{-- <h2>{{ __('messages.text_football_livestream') }}</h2> --}}
     <div class="iframe-container">
-
-      <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
+      <iframe src="https://www.youtube.com/embed/sqFkZYRMzY8?si=xjICELoUtrkNkx5O" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      {{-- <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-      </iframe>
+      </iframe> --}}
 
     </div>
     <a href="https://me88cash.com/register?affid=5678" class="afflink">
@@ -85,7 +90,7 @@
   <!--Sports Video End-->
 
   <!--Plan Start-->
-  <section class="plan wf100 p80">
+  {{-- <section class="plan wf100 p80">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12">
@@ -134,10 +139,10 @@
       @endforeach
 
     </div>
-  </section>
+  </section> --}}
 
   <!--Subscription start-->
-  @if(auth()->check())
+  {{-- @if(auth()->check())
   @if(!auth()->user()->activeSubscription())
   <section class="subscription wf100 p40">
     <div class="container">
@@ -193,7 +198,7 @@
       </div>
     </div>
   </section>
-  @endif
+  @endif --}}
   <!--Subscription end-->
 </div>
 <!--Main Content End-->
