@@ -13,11 +13,11 @@
         scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
       </iframe>
     </div>
-    @if($youtube)
+    {{-- @if($youtube)
     <div class="iframe-container">
       {!! $youtube['content']!!}
     </div>
-    @endif
+    @endif --}}
 
     {{-- <iframe src="https://www.youtube.com/embed/sqFkZYRMzY8?si=xjICELoUtrkNkx5O" title="YouTube video player"
       frameborder="0"
