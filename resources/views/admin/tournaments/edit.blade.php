@@ -518,6 +518,7 @@ JsValidator::formRequest('App\Http\Requests\StoreTournamentMatchRequest',
         $('#modalMatch #form-match #best_tip').val(data.data.best_tip);
         $('#modalMatch #form-match #best_tip_odd').val(data.data.best_tip_odd);
         $('#modalMatch #form-match #mixparlay').val(data.data.mixparlay);
+        $('#modalMatch #form-match #mixparlay_odd').val(data.data.mixparlay_odd);
 
 
         // 更新表单动作 URL
