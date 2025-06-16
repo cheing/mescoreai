@@ -21,13 +21,20 @@ class TeamController extends Controller
      */
     public function index(Request $request)
     {
+        $keyword = $request->input('keyword');
         $sort = $request->input('sort', 'name');
         $direction = $request->input('direction', 'asc');
 
-        // 示例：每页显示10个团队，按照名称排序
-        $teams = Team::orderby('name')
-        ->paginate($this->limits);
-        // $teams = Team::all();
+        $query = Team::query();
+
+        if (!empty($keyword)) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+        }
+
+        $teams = $query->orderBy($sort, $direction)
+                   ->paginate($this->limits)
+                   ->appends($request->except('page')); // 保持分页时保留查询参数
+
 
         return view('admin.teams.index', [
             'teams' => $teams,

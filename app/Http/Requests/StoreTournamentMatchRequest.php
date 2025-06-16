@@ -45,6 +45,7 @@ class StoreTournamentMatchRequest extends FormRequest
             'best_tip' => 'nullable|string',
             'best_tip_odd' => 'nullable|numeric',
             'mixparlay' => 'nullable|string',
+            'mixparlay_odd' => 'nullable|numeric',
         ];
     }
 }

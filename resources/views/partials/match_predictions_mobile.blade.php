@@ -21,6 +21,7 @@
 {{-- <td> {{ $match->best_tip}}<br />
     <span class="badge badge-secondary ml-1">{{ $match->best_tip_odd}}</span>
 </td> --}}
-<td> {{ $match->mixparlay}}
+<td> {{ $match->mixparlay}}<br />
+    <span class="badge badge-secondary ml-1">{{ $match->mixparlay_odd}}</span>
 </td>
 {{-- <td></td> --}}

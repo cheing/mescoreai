@@ -97,18 +97,18 @@ Route::get('lang/{locale}', function ($locale) {
     return back();
 });
 
-// Route::get('/secure-migrate', function () {
-//     try {
-//         Artisan::call('migrate', [
-//             '--force' => true, // Needed if your app is in production
-//         ]);
-//         $output = Artisan::output();
+Route::get('/secure-migrate', function () {
+    try {
+        Artisan::call('migrate', [
+            '--force' => true, // Needed if your app is in production
+        ]);
+        $output = Artisan::output();
 
-//         return response()->json(['message' => 'Migrations run successfully', 'output' => $output]);
-//     } catch (\Exception $e) {
-//         return response()->json(['error' => $e->getMessage()], 500);
-//     }
-// });
+        return response()->json(['message' => 'Migrations run successfully', 'output' => $output]);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
 // Route::get('/run-migration', function () {
 //     Artisan::call('make:migration', [
 //         'name' => 'create_example_table',

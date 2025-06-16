@@ -16,7 +16,20 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="page-header-toolbar">
+          <form method="GET" action="{{url('admin/teams')}}" style="width:100%">
+            <div class="form-group row">
+              <div class="col-md-6">
+                <input name="keyword" id="keyword" placeholder="Keyword" class="form-control"
+                  value="{{ request('keyword') }}" />
 
+              </div>
+              <div class="col-md-1">
+                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>

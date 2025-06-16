@@ -119,7 +119,9 @@
                         <input type="text" class="form-control mt-1" name="best_tip_odd" id="best_tip_odd" />
                       </td>
                       <td>
-                        <input type="text" class="form-control" name="mixparlay" id="mixparlay" />
+                        <input type="text" class="form-control" name="mixparlay" id="mixparlay" /><br />
+                        <input type="text" class="form-control mt-1" name="mixparlay_odd" id="mixparlay_odd" />
+
                       </td>
                     </tr>
                   </tbody>

@@ -46,6 +46,7 @@ class UpdateTournamentMatchRequest extends FormRequest
             'best_tip' => 'sometimes|nullable|string',
             'best_tip_odd' => 'sometimes|nullable|numeric',
             'mixparlay' => 'sometimes|nullable|string',
+            'mixparlay_odd' => 'sometimes|nullable|numeric',
 
         ];
     }

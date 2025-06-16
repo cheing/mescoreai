@@ -20,11 +20,20 @@ class CountryController extends Controller
      */
     public function index(Request $request)
     {
+        $keyword = $request->input('keyword');
         $sort = $request->input('sort', 'name');
         $direction = $request->input('direction', 'asc');
 
-        $countries = Country::orderBy($sort, $direction)
-        ->paginate($this->limits);
+        $query = Country::query();
+
+        if (!empty($keyword)) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+        }
+
+        $countries = $query->orderBy($sort, $direction)
+                   ->paginate($this->limits)
+                   ->appends($request->except('page')); // 保持分页时保留查询参数
+
 
         return view('admin.countries.index', [
             'countries' => $countries,
