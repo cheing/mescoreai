@@ -524,7 +524,15 @@ JsValidator::formRequest('App\Http\Requests\StoreTournamentMatchRequest',
         // 更新表单动作 URL
         $('#modalMatch #form-match').attr('action', '{{ url('admin/matches/') }}/' + data.id);
     }
-
+    
+  $('#modalMatch').on('shown.bs.modal', function () {
+  $('#team_a_id').select2({
+    dropdownParent: $('#modalMatch') // 重要！
+  });
+    $('#team_b_id').select2({
+    dropdownParent: $('#modalMatch') // 重要！
+  });
+});
   
 </script>
 @endsection
