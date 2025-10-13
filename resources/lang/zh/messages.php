@@ -5,6 +5,7 @@ return [
     'nav_faq' => '常见问题',
     'nav_match' => '比赛预测',
     'nav_subscription' => '订阅',
+    'nav_promotion' => '优惠活动',
 
     'btn_bet_now' => '领取 100% 体育奖金',
     'btn_change_password' => '更改密码',
@@ -54,6 +55,8 @@ return [
     'text_package_info_7' => 'Over Under 预测',
     'text_password' => '密码',
     'text_plan_desc' => '我们提供全面访问所有足球预测、统计数据、过滤和其他功能。',
+    'text_promotion' => '优惠活动',
+    'text_promotions' => '优惠活动',
     'text_register' => '注册',
     'text_sign_in' => '登录',
     'text_sign_up' => '注册',

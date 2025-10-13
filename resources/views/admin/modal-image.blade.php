@@ -13,11 +13,11 @@
         <div class="modal-body">
           <div id="dropFileState" ondragover="return false">
             <div id="dragUploadFile">
-              <p>File Type：PNG，JPG，GIF，TIFF, PDF<br />
+              <p>File Type：PNG，JPG，GIF，TIFF, PDF, webp<br />
                 File Size：5MB
               </p>
               <input type="file" id="photo" name="photo" class="dropify" data-max-file-size="5M"
-                data-allowed-file-extensions="jpg png gif tiff jpeg pdf" />
+                data-allowed-file-extensions="jpg png gif tiff jpeg pdf webp" />
             </div>
           </div>
           <div class="text-center mt-2">

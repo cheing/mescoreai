@@ -10,6 +10,7 @@ use App\Models\Information;
 use App\Models\Package;
 use App\Models\TournamentMatch;
 use App\Models\User;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -172,4 +173,14 @@ class HomeController extends Controller
     {
         return view('test');
     }
+
+
+    public function Promotion()
+    {
+        $promotions = Promotion::orderBy('sort')->get();
+        $meta = Information::where('key', 'meta_promotion')->first();
+
+        return view('promotion', ['promotions' => $promotions, 'meta' => $meta]);
+    }
+
 }

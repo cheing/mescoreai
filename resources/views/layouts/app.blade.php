@@ -112,6 +112,12 @@
                       }}
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{route('promotion')}}" class="{{ request()->routeIs('promotion') ? 'active' : '' }}">{{
+                      __('messages.nav_promotion')
+                      }}
+                    </a>
+                  </li>
                   {{-- @auth --}}
                   {{-- <li class="nav-item d-block d-sm-none">
                     <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modalPassword">{{

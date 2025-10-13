@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\V1\SubscriptionController;
 use App\Http\Controllers\Api\V1\TeamController;
 use App\Http\Controllers\Api\V1\TournamentController;
 use App\Http\Controllers\Api\V1\TournamentMatchController;
+use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\UploadController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +36,7 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
 Route::get('/test', 'HomeController@test')->name('test');
-
+Route::get('/promotion', 'HomeController@Promotion')->name('promotion');
 /* Admin */
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
@@ -70,6 +71,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('packages', PackageController::class);
     Route::resource('receipts', ReceiptController::class);
     Route::resource('subscriptions', SubscriptionController::class);
+    Route::resource('promotions', PromotionController::class);
+
 
     // Route::post('/round/{round}/winner', [RoundController::class, 'setWinner'])->name('set.winner');
     // Route::post('/round/{round}/winner', 'RoundController@setWinner');

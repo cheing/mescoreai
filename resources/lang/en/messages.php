@@ -5,6 +5,8 @@ return [
     'nav_faq' => 'FAQ',
     'nav_match' => 'Match Prediction',
     'nav_subscription' => 'Subscription',
+    'nav_promotion' => 'Promotion',
+
 
     'btn_bet_now' => 'Claim 100% Sports Bonus',
     'btn_change_password' => 'Change Password',
@@ -57,6 +59,8 @@ return [
     'text_password' => 'Password',
     'text_plan_desc' => 'We offer full access to all the football tips, statistics,
     filters and any other functionality.',
+    'text_promotion' => 'Promotion',
+    'text_promotions' => 'Promotions',
     'text_register' => 'Register',
     'text_sign_in' => 'Sign In',
     'text_sign_up' => 'Sign Up',

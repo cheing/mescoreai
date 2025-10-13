@@ -134,6 +134,24 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/blogs')}}">
+              <i class="menu-icon icon-pencil"></i>
+              <span class="menu-title">Blogs</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/promotions')}}">
+              <i class="menu-icon icon-pencil"></i>
+              <span class="menu-title">Promotions</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('admin/pages')}}">
+              <i class="menu-icon icon-pencil"></i>
+              <span class="menu-title">Pages</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{url('admin/faqs')}}">
               <i class="menu-icon icon-question"></i>
               <span class="menu-title">FAQs</span>
