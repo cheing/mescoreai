@@ -133,11 +133,30 @@
               <span class="menu-title">Packages</span>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{url('admin/blogs')}}">
               <i class="menu-icon icon-pencil"></i>
               <span class="menu-title">Blogs</span>
             </a>
+          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#transfer-dropdown" aria-expanded="false"
+              aria-controls="transfer-dropdown">
+              <i class="menu-icon icon-pencil"></i>
+              <span class="menu-title">Blog</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="transfer-dropdown">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('admin/blogs')}}">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{url('admin/blog-categories')}}">Category</a>
+                </li>
+
+              </ul>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('admin/promotions')}}">

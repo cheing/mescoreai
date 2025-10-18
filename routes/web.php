@@ -12,7 +12,11 @@ use App\Http\Controllers\Api\V1\TeamController;
 use App\Http\Controllers\Api\V1\TournamentController;
 use App\Http\Controllers\Api\V1\TournamentMatchController;
 use App\Http\Controllers\Api\V1\PromotionController;
+use App\Http\Controllers\Api\V1\BlogController;
+use App\Http\Controllers\Api\V1\BlogCategoryController;
 use App\Http\Controllers\Api\V1\UploadController;
+use App\Http\Controllers\BlogController as FrontBlogController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +41,12 @@ Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
 Route::get('/test', 'HomeController@test')->name('test');
 Route::get('/promotion', 'HomeController@Promotion')->name('promotion');
+Route::prefix('blogs')->group(function () {
+    Route::get('/', [FrontBlogController::class, 'index'])->name('blog.index');
+    Route::get('/{slug}', [FrontBlogController::class, 'show'])->name('blog.show');
+});
+Route::get('/blog/category/{slug}', [FrontBlogController::class, 'category'])->name('blog.category');
+
 /* Admin */
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 
@@ -72,6 +82,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('receipts', ReceiptController::class);
     Route::resource('subscriptions', SubscriptionController::class);
     Route::resource('promotions', PromotionController::class);
+    Route::resource('blogs', BlogController::class);
+    Route::resource('blog-categories', BlogCategoryController::class);
 
 
     // Route::post('/round/{round}/winner', [RoundController::class, 'setWinner'])->name('set.winner');

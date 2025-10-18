@@ -76,15 +76,15 @@
       <!--topbar end-->
       <!--Logo + Navbar Start-->
       <div class="logo-navbar">
-        <div class="container">
+        <div class="container ">
           <div class="row">
-            <div class="col-md-2 col-sm-5">
+            <div class="col-md-2 col-sm-12">
               <div class="logo">
                 <a href="{{route('home')}}"><img src="{{ asset('images/logo-white.svg') }}" alt=""></a>
 
               </div>
             </div>
-            <div class="col-md-7 col-sm-4">
+            <div class="col-md-10 col-sm-12">
               <nav class="main-nav">
                 <ul>
                   <li class="nav-item">
@@ -115,6 +115,12 @@
                   <li class="nav-item">
                     <a href="{{route('promotion')}}" class="{{ request()->routeIs('promotion') ? 'active' : '' }}">{{
                       __('messages.nav_promotion')
+                      }}
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('blog.index')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">{{
+                      __('messages.nav_blog')
                       }}
                     </a>
                   </li>

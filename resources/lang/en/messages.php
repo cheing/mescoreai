@@ -6,7 +6,7 @@ return [
     'nav_match' => 'Match Prediction',
     'nav_subscription' => 'Subscription',
     'nav_promotion' => 'Promotion',
-
+    'nav_blog' => 'Blog',
 
     'btn_bet_now' => 'Claim 100% Sports Bonus',
     'btn_change_password' => 'Change Password',
@@ -28,6 +28,9 @@ return [
     'text_account' => 'Account',
     'text_ady_subscribe' => 'Your subscription has been activated successfully. You may now access all premium predictions.',
     'text_already_have_account' => 'Already have account?',
+    'text_archives' => 'Archives',
+    'text_blogs' => 'Blogs',
+    'text_categories' => 'Categories',
     'text_change_password' => 'Change Password',
     'text_chat_with_us' => 'Chat with us',
     'text_confirm_password' => 'Confirm Password',
@@ -61,6 +64,8 @@ return [
     filters and any other functionality.',
     'text_promotion' => 'Promotion',
     'text_promotions' => 'Promotions',
+    'text_read_more' => 'Read More',
+    'text_related_posts' => 'Related Posts',
     'text_register' => 'Register',
     'text_sign_in' => 'Sign In',
     'text_sign_up' => 'Sign Up',
