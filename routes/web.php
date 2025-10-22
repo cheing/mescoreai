@@ -14,9 +14,10 @@ use App\Http\Controllers\Api\V1\TournamentMatchController;
 use App\Http\Controllers\Api\V1\PromotionController;
 use App\Http\Controllers\Api\V1\BlogController;
 use App\Http\Controllers\Api\V1\BlogCategoryController;
+use App\Http\Controllers\Api\V1\PageController;
 use App\Http\Controllers\Api\V1\UploadController;
 use App\Http\Controllers\BlogController as FrontBlogController;
-
+use App\Http\Controllers\PageController as FrontPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,6 @@ Route::get('/subscription', 'HomeController@Subscription')->name('subscription')
 Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
-Route::get('/test', 'HomeController@test')->name('test');
 Route::get('/promotion', 'HomeController@Promotion')->name('promotion');
 Route::prefix('blogs')->group(function () {
     Route::get('/', [FrontBlogController::class, 'index'])->name('blog.index');
@@ -84,6 +84,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::resource('promotions', PromotionController::class);
     Route::resource('blogs', BlogController::class);
     Route::resource('blog-categories', BlogCategoryController::class);
+    Route::resource('pages', PageController::class);
 
 
     // Route::post('/round/{round}/winner', [RoundController::class, 'setWinner'])->name('set.winner');
@@ -131,3 +132,4 @@ Route::get('/secure-migrate', function () {
 //     ]);
 //     return "Migration created!";
 // });
+Route::get('/{slug}', [FrontPageController::class, 'show'])->name('page.show');

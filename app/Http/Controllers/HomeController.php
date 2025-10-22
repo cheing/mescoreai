@@ -25,6 +25,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct(); // 🧠 ensure menu shared globally
         // $this->middleware('auth');
     }
 

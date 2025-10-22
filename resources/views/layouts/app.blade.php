@@ -100,18 +100,21 @@
                     </a>
                   </li>
 
-                  {{-- <li class="nav-item">
-                    <a href="{{route('subscription')}}"
-                      class="{{ request()->routeIs('subscription')  ? 'active' : '' }}">{{
-                      __('messages.nav_subscription')
-                      }}</a>
-                  </li> --}}
                   <li class="nav-item">
                     <a href="{{route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">{{
                       __('messages.nav_faq')
                       }}
                     </a>
                   </li>
+
+                  @foreach($topMenuPages ?? [] as $page)
+                  <li class="nav-item">
+                    <a href="{{ url($page->slug) }}" class="{{ request()->is($page->slug) ? 'active' : '' }}">
+                      {{ $page->translate()->title ?? ucfirst($page->slug) }}
+                    </a>
+                  </li>
+                  @endforeach
+
                   <li class="nav-item">
                     <a href="{{route('promotion')}}" class="{{ request()->routeIs('promotion') ? 'active' : '' }}">{{
                       __('messages.nav_promotion')

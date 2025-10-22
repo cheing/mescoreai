@@ -13025,3 +13025,48 @@ a.text-success:hover {
 	border-top-right-radius: 0.2rem;
 	border-bottom-right-radius: 0.2rem;
 }
+
+.text-primary {
+	color: #ff4e00 !important;
+}
+
+.page a {
+	color: #ff4e00;
+}
+
+.testi .author {
+	margin: 0 0 12px;
+	list-style: none;
+	padding: 0px;
+}
+
+.testi .author img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	margin-right: 8px;
+	object-fit: cover;
+}
+
+.testi .author h4 {
+	color: #fff;
+	font-size: 0.9rem;
+}
+
+
+.darktb th,
+.darktb td {
+	color: #fff !important;
+	border-color: #2f2e34;
+	font-weight: normal;
+}
+
+.orgtitle {
+	background: #ff4e00;
+	color: #fff;
+	font-weight: bold;
+}
+
+.darktb tbody tr:nth-child(odd) {
+	background-color: #1f1e23;
+}
