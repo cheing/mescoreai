@@ -36,7 +36,7 @@
         </a>
       </div>
       <div class="col-12 col-md-auto">
-        <a href="{{ route('matches') }}" class="btn btn-primary text-uppercase w-100">
+        <a href="https://mescoreai.com/predictions" class="btn btn-primary text-uppercase w-100">
           {{ __('messages.btn_match_prediction') }}
           <div class="fill-two"></div>
         </a>

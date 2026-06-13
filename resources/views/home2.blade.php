@@ -22,7 +22,8 @@
           class="fill-one">
         </div>
       </a>
-      <a href="{{route('matches')}}" class="btn btn-primary text-uppercase">Match Prediction <div class="fill-two">
+      <a href="https://mescoreai.com/predictions" class="btn btn-primary text-uppercase">Match Prediction <div
+          class="fill-two">
         </div>
       </a>
     </div>
