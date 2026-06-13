@@ -7,7 +7,6 @@
   <div class="container text-center">
     {{-- <h2>{{ __('messages.text_football_livestream') }}</h2> --}}
     <div class="iframe-container">
-
       <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
