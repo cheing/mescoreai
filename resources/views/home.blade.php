@@ -232,7 +232,7 @@
 @endsection
 
 @section('footer')
-<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+
 
 <script>
   $(document).ready(function() {
