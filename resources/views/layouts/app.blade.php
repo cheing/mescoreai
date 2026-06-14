@@ -283,7 +283,7 @@
               <li><a href="{{route('home')}}">{{
                   __('messages.nav_home')
                   }}</a></li>
-              <li><a href="{{route('matches')}}">
+              <li><a href="https://mescoreai.com/predictions">
                   {{
                   __('messages.nav_match')
                   }}</a></li>
