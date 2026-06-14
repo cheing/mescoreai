@@ -93,19 +93,26 @@
                       __('messages.nav_home')
                       }}</a>
                   </li>
+
                   <li class="nav-item">
-                    <a href="{{route('matches')}}" class="{{ request()->routeIs('matches') ? 'active' : '' }}">{{
+                    <a href="https://mescoreai.com/predictions">{{
                       __('messages.nav_match')
                       }}
                     </a>
                   </li>
+                  <!--<li class="nav-item">-->
+                  <!--  <a href="{{route('matches')}}" class="{{ request()->routeIs('matches') ? 'active' : '' }}">{{-->
+                  <!--    __('messages.nav_match')-->
+                  <!--    }}-->
+                  <!--  </a>-->
+                  <!--</li>-->
 
-                  <li class="nav-item">
-                    <a href="{{route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">{{
-                      __('messages.nav_faq')
-                      }}
-                    </a>
-                  </li>
+                  <!--<li class="nav-item">-->
+                  <!--  <a href="{{route('faq')}}" class="{{ request()->routeIs('faq') ? 'active' : '' }}">{{-->
+                  <!--    __('messages.nav_faq')-->
+                  <!--    }}-->
+                  <!--  </a>-->
+                  <!--</li>-->
 
                   @foreach($topMenuPages ?? [] as $page)
                   <li class="nav-item">
@@ -115,17 +122,17 @@
                   </li>
                   @endforeach
 
-                  <li class="nav-item">
-                    <a href="{{route('promotion')}}" class="{{ request()->routeIs('promotion') ? 'active' : '' }}">{{
-                      __('messages.nav_promotion')
-                      }}
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('blog.index')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">{{
-                      __('messages.nav_blog')
-                      }}
-                    </a>
+                  <!--<li class="nav-item">-->
+                  <!--  <a href="{{route('promotion')}}" class="{{ request()->routeIs('promotion') ? 'active' : '' }}">{{-->
+                  <!--    __('messages.nav_promotion')-->
+                  <!--    }}-->
+                  <!--  </a>-->
+                  <!--</li>-->
+                  <!--<li class="nav-item">-->
+                  <!--  <a href="{{route('blog.index')}}" class="{{ request()->routeIs('blogs') ? 'active' : '' }}">{{-->
+                  <!--    __('messages.nav_blog')-->
+                  <!--    }}-->
+                  <!--  </a>-->
                   </li>
                   {{-- @auth --}}
                   {{-- <li class="nav-item d-block d-sm-none">
@@ -296,7 +303,7 @@
     @include('components.modal-register')
     @endguest
     <div class="chat-tg">
-      <a href="https://t.me/mescoreaiofficial/" target="_blank">
+      <a href="https://t.me/mescoreai" target="_blank">
         <img src="{{ asset('images/icons8-telegram-app.svg')}}" style="width:30px;margin-left:8px" />
         <span class="text"> {{
           __('messages.text_chat_with_us')

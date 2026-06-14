@@ -24,7 +24,7 @@
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
 
     <a href="https://me88cash.com/register?affid=5678" class="afflink">
-      <img src="{{asset('images/adbanner20240524.gif')}}" class="banner" /></a>
+      <img src="{{asset('images/GIF_mescoreAI.gif')}}" class="banner" /></a>
 
     <div class="row justify-content-center mt-4">
       <div class="col-12 col-md-auto mb-2 mb-md-0">
