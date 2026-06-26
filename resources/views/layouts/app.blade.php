@@ -40,9 +40,9 @@
   <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('vendor/jquery-confirm-master/css/jquery-confirm.css') }}" />
   <!-- Template Main CSS File -->
-  <link href="{{ asset('css/custom.css?v=9') }}" rel="stylesheet">
-  <link href="{{ asset('css/responsive.css?v=6') }}" rel="stylesheet">
-  <link href="{{ asset('css/color.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/custom.css') }}?v={{ filemtime(public_path('css/custom.css')) }}" rel="stylesheet">
+  <link href="{{ asset('css/responsive.css') }}?v={{ filemtime(public_path('css/responsive.css')) }}" rel="stylesheet">
+  <link href="{{ asset('css/color.css') }}?v={{ filemtime(public_path('css/color.css')) }}" rel="stylesheet">
 </head>
 
 <body>
