@@ -2113,3 +2113,12 @@
 		font-size: 75%;
 	}
 }
+
+/* Mobile landscape: keep header in normal flow instead of sticky/fixed */
+@media (orientation: landscape) and (max-height: 500px) {
+	.main-header.header-scrolled {
+		position: static;
+		box-shadow: none;
+		animation: none;
+	}
+}

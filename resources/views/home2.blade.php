@@ -4,7 +4,7 @@
 <div class="hero_main2 wf100">
   <div class="iframe-container">
     <iframe src="https://me88livestreaming.com/live?mode=s1" title="Live Streaming" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
       scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
     </iframe>
   </div>
