@@ -41,6 +41,7 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
 Route::get('/promotion', 'HomeController@Promotion')->name('promotion');
+Route::view('/livestreaming', 'livestreaming')->name('livestreaming');
 Route::prefix('blogs')->group(function () {
     Route::get('/', [FrontBlogController::class, 'index'])->name('blog.index');
     Route::get('/{slug}', [FrontBlogController::class, 'show'])->name('blog.show');

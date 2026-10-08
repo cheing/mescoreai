@@ -255,7 +255,7 @@
             <div class="footer-widget">
               <h4 class="text-uppercase">{{
                 __('messages.text_sponsor')
-                }}</h4> <a href="https://me88cash.com/register?affid=5678">
+                }}</h4> <a href="https://me88myprime.com/register?affid=5678">
                 <div class="d-flex justify-content-center align-items-center">
 
                   <img src="{{asset('images/logo-me88.png')}}" class="flex-img" /><img
@@ -512,7 +512,7 @@ if (currentCode && (!existingCode || existingCode !== currentCode)) {
 var affiliateCode = localStorage.getItem('affiliateCode');
 if (affiliateCode) {
     // Use the affiliate code as needed, for example, update links.
-    $("a.afflink").attr("href", "https://me88cash.com/register?affid=" + affiliateCode);
+    $("a.afflink").attr("href", "https://me88myprime.com/register?affid=" + affiliateCode);
 }
 
 
