@@ -47,6 +47,19 @@ class HomeController extends Controller
         return view('home', ['packages' => $packages, 'text_welcome' => $text_welcome, 'meta' => $meta , 'youtube' => $youtube]);
     }
 
+    public function indexAd()
+    {
+        // 获取当前日期
+        $today = Carbon::now();
+
+        $packages = Package::where('status', 1)->orderby('sort', 'asc')->get();
+        $text_welcome = Information::where('key', 'text_welcome')->first();
+        $meta = Information::where('key', 'meta_home')->first();
+        $youtube = Information::where('key', 'youtube_home')->first();
+
+        return view('home-ad', ['packages' => $packages, 'text_welcome' => $text_welcome, 'meta' => $meta , 'youtube' => $youtube]);
+    }
+
     public function index2()
     {
         // 获取当前日期

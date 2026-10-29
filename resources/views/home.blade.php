@@ -23,28 +23,29 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
     <div class="my-2 d-flex justify-content-end d-lg-none">
-      <a href="{{ route('livestreaming') }}"
-        class="btn btn-primary text-uppercase w-100">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="mr-1 align-text-bottom" aria-hidden="true">
+      <a href="{{ route('livestreaming') }}"  class="btn btn-primary text-uppercase w-100">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="mr-1 align-text-bottom"
+          aria-hidden="true">
           <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
         </svg>
         <!-- 全屏 -->Watch Full screen
         <div class="fill-one"></div>
       </a>
     </div>
-    <a href="https://me88myprime.com/register?affid=5678" class="afflink">
+    <a href="https://me88myprime.com/register?affid=5678" target="_blank" class="afflink">
       <img src="{{asset('images/GIF_mescoreAI.gif')}}" class="banner" /></a>
 
     <div class="row justify-content-center mt-4">
       <div class="col-12 col-md-auto mb-2 mb-md-0">
         <!-- Stacks on small devices, inline on medium and up -->
-        <a href="https://me88myprime.com/register?affid=5678" class="afflink btn btn-primary text-uppercase w-100">
+        <a href="https://me88myprime.com/register?affid=5678" target="_blank"
+          class="afflink btn btn-primary text-uppercase w-100">
           {{ __('messages.btn_bet_now') }}
           <div class="fill-one"></div>
         </a>
       </div>
       <div class="col-12 col-md-auto">
-        <a href="https://mescoreai.com/predictions" class="btn btn-primary text-uppercase w-100">
+        <a href="https://mescoreai.com/predictions" target="_blank" class="btn btn-primary text-uppercase w-100">
           {{ __('messages.btn_match_prediction') }}
           <div class="fill-two"></div>
         </a>

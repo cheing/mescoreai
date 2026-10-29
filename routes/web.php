@@ -35,6 +35,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@Index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home-ad', 'HomeController@indexAd')->name('homead');
+
 Route::get('/matches', 'MatchesController@index')->name('matches');
 Route::get('/subscription', 'HomeController@Subscription')->name('subscription');
 Route::get('/faq', 'HomeController@faq')->name('faq');
@@ -42,6 +44,8 @@ Route::post('/register', 'HomeController@Register')->name('register');
 Route::post('/member-login', 'HomeController@Login')->name('member-login');
 Route::get('/promotion', 'HomeController@Promotion')->name('promotion');
 Route::view('/livestreaming', 'livestreaming')->name('livestreaming');
+Route::view('/livestreaming-ad', 'livestreaming-ad')->name('livestreaming-ad');
+
 Route::prefix('blogs')->group(function () {
     Route::get('/', [FrontBlogController::class, 'index'])->name('blog.index');
     Route::get('/{slug}', [FrontBlogController::class, 'show'])->name('blog.show');
