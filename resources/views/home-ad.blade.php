@@ -245,7 +245,8 @@
 
 <script src="https://paulwin88.com/ad-overlay.js"
         data-channel="mescoreai"
-        data-target=".iframe-container"></script>
+        data-target=".iframe-container"
+        data-tap-to-start></script>
 
 <script>
   $(document).ready(function() {
