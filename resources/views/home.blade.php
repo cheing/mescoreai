@@ -243,7 +243,7 @@
 
 @section('footer')
 
-<script src="https://paulwin88.com/ad-overlay.js"
+<script src="https://paulwin88.com/ad-overlay.js?v=2"
         data-channel="mescoreai"
         data-target=".iframe-container"
         data-tap-to-start></script>
