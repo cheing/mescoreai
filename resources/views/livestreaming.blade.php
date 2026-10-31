@@ -321,5 +321,10 @@
         }
       })();
     </script>
+
+    <script src="https://paulwin88.com/ad-overlay.js"
+            data-channel="mescoreai"
+            data-target="#streamWrap"
+            data-tap-to-start></script>
   </body>
 </html>
