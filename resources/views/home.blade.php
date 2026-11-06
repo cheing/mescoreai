@@ -11,6 +11,10 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
         scrolling="no" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
       </iframe>
+      <div class="viewer-badge" id="viewerBadge" hidden>
+        <span class="dot" aria-hidden="true"></span>
+        <span><span data-count></span> online</span>
+      </div>
     </div>
     {{-- @if($youtube)
     <div class="iframe-container">
@@ -23,7 +27,7 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> --}}
     <div class="my-2 d-flex justify-content-end d-lg-none">
-      <a href="{{ route('livestreaming') }}"  class="btn btn-primary text-uppercase w-100">
+      <a href="{{ route('livestreaming') }}" class="btn btn-primary text-uppercase w-100">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" class="mr-1 align-text-bottom"
           aria-hidden="true">
           <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" />
@@ -243,10 +247,48 @@
 
 @section('footer')
 
-<script src="https://paulwin88.com/ad-overlay.js?v=2"
-        data-channel="mescoreai"
-        data-target=".iframe-container"
-        data-tap-to-start></script>
+<style>
+  .viewer-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 16;
+    /* above the ad overlay, which uses 15 */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 99px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font: 600 13px/1 system-ui, -apple-system, sans-serif;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+    /* taps go through to the player */
+  }
+
+  .viewer-badge[hidden] {
+    display: none;
+  }
+
+  .viewer-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff3b30;
+    animation: viewer-pulse 1.6s ease-in-out infinite;
+  }
+
+  @keyframes viewer-pulse {
+    50% {
+      opacity: 0.35;
+    }
+  }
+</style>
+
+<script src="https://paulwin88.com/ad-overlay.js?v=20261106" data-channel="mescoreai" data-target=".iframe-container"
+  data-viewers="#viewerBadge" data-tap-to-start></script>
 
 <script>
   $(document).ready(function() {
